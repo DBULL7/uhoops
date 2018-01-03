@@ -21,11 +21,6 @@ if (!process.env.NODE_ENV) app.use(logger('dev'))
 
 app.set('views', './server/views')
 app.set('view engine', 'pug')
-app.use(function (req, res, next) {
-  console.log(req.cookies)
-  next()
-})
-
 const routes = require('./routes')
 app.use('/', routes)
 app.use(express.static('public'))

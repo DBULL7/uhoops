@@ -9,7 +9,7 @@ let userSchema = new Schema({
       name:     { type: String, trim: true, required: true }, 
       created:  { type: Date, default: Date.now }
 })
-// 
+
 
 userSchema.methods.comparePassword = function(password) {
   return bcrypt.compareSync(password, this.password) 
