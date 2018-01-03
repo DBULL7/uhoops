@@ -2,7 +2,7 @@
   "name": "uhoops",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon --watch public server/cluster.js",
+    "start": "nodemon --watch server server/cluster.js",
     "page": "node enzo/page.js",
     "api": "node enzo/api.js",
     "build": "webpack --watch",

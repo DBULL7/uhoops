@@ -8,8 +8,10 @@ let helmet = require('helmet')
 let logger = require('morgan')
 let cookieParser = require('cookie-parser')
 require('dotenv').config()
-var mongoose = require('mongoose')
+let mongoose = require('mongoose')
 mongoose.connect(process.env.MONGO)
+
+
 app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(compression())
@@ -19,7 +21,10 @@ if (!process.env.NODE_ENV) app.use(logger('dev'))
 
 app.set('views', './server/views')
 app.set('view engine', 'pug')
-
+app.use(function (req, res, next) {
+  console.log(req.cookies)
+  next()
+})
 
 const routes = require('./routes')
 app.use('/', routes)
