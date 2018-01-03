@@ -10,7 +10,7 @@ exports.deleteaccount = (req, res) => { }
 exports.post = (req, res, next) => { 
   var newUser = new User(req.body);
   newUser.password = bcrypt.hashSync(req.body.password, 10);
-  newUser.save(function (err, user) {
+  newUser.save((err, user) => {
     if (err) {
       return res.status(400).send({ message: err})
     } else {
