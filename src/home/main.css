@@ -17,6 +17,7 @@ nav {
 
 .nav-link {
   color: white!important;
+  margin-right: 10px;
 }
 
 .nav-logo {
@@ -47,8 +48,12 @@ nav {
 }
 
 .global-network {
-  padding: 50px;
+  padding: 100px;
   text-align: center;
+}
+
+.section-title {
+  font-size: 45px;
 }
 
 .global-network-text {
@@ -63,7 +68,7 @@ nav {
 }
 
 .three-perks {
-  padding: 30px;
+  padding: 120px;
   background: url('/assets/gym-background.jpg');
   background-size: cover;
   max-width: 100%;
@@ -75,21 +80,23 @@ nav {
 
 
 .divider {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
-#join-us-btn {
+.join-us-btn {
   width: 140px;
   height: 40px;
   align-self: center;
   margin-top: 20px;
-  border: 2px solid;
+  border: 2px solid white;
 }
 
 .explore-opportunity {
-  padding: 50px;
+  padding: 100px;
 }
+
+
 
 .semi-cards {
   background: rgb(30, 33, 35);
@@ -99,6 +106,15 @@ nav {
 
 .success-stories {
   padding: 50px;
+}
+
+.join-red-section {
+  padding: 60px;
+  background: url("/assets/home-parallax.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 footer {
@@ -130,6 +146,10 @@ footer {
   margin-left: 10px;
   /* padding: 2px;
   background: white; */
+}
+
+.join {
+  margin-top: 10px;
 }
 
 @media (min-width: 992px) {
@@ -165,6 +185,13 @@ footer {
 
   .left-side-footer {
     font-size: 11px;
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+  }
+  .red-join-us {
     text-align: center;
   }
 }

@@ -16,20 +16,21 @@ block content
         ul(class="navbar-nav")
           li(class="nav-item")
             a(class="nav-link" href="/about") About
-          li(class="nav-item")
-            a(class="nav-link" href="/tours") Tours 
-          li(class="nav-item")
-            a(class="nav-link" href="/training-camps") Training Camps
-          li(class="nav-item")
-            a(class="nav-link" href="/courses") Online Courses
+          
+          li(class="nav-item dropdown")
+            a(class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Services
+            div(class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink")
+              a(class="dropdown-item" href="/tours") Tours 
+              a(class="dropdown-item" href="/training-camps") Training Camps
+              a(class="dropdown-item" href="/courses") Online Courses
           li.nav-item
-            a(class="nav-link" href="/login") Login
+            a(class="btn btn-outline-light" href="/login") Login
   div(id="hero-img" class="text-center container")
     h2.text-white.tag Global Basketball Network
     h3.text-white.sub-tag Inspire, Connect, and Empower Players
-    button(type="button" class="btn btn-outline-light" id="join-us-btn") Join Us
+    a(class="btn btn-outline-light join-us-btn" href="register") Join Us
   div(class="container bg-dark text-center global-network")
-    h2.text-white Global Network
+    h2(class="text-white section-title") Global Network
     img(src="/assets/divider-xx-red.png", alt="divider icon" class="divider")
     .container.global-network-text
       p.text-secondary.global-network-p U-Hoops is basketball platform that brings players, scouts, coaches and sports professionals on to a single platform to connect all over the world, while providing them the tools and data to create career opportunities.
@@ -56,13 +57,13 @@ block content
           p.text-secondary Gain access to resources to help you on and off the court  
 
   .container.bg-dark.text-center.explore-opportunity
-    h2.text-white Explore Opportunity
+    h2.text-white.section-title Explore Opportunity
     img(src="/assets/divider-xx-red.png" class="divider")
     .row.justify-content-around
       .col-lg-5.semi-cards
         span.text-center
           p.text-secondary For Players
-        ul.text-secondary
+        ul.text-secondary.text-center
           li Exclusive access to U-Hoops and affiliated camps and tours in the U.S. and abroad.
           li Online and telephone advising sessions with sports professionals ranging from athletes to former scouts and coaches. 
           li Get recognition and grow your network from your personal profile.
@@ -74,7 +75,7 @@ block content
           li Insights into player personalities and tendencies so it is easier to understand what role they will play in a team.
           li Opportunities to promote and gain access for your players to compete in tours and camps in the U.S. and other countries.
   .container.bg-dark.success-stories.text-center
-    h2.text-white Success Stories
+    h2.text-white.section-title Success Stories
     img(src="/assets/divider-xx-red.png" class="divider")
     .row.justify-content-around
       .col-lg-5.semi-cards.text-secondary
@@ -90,6 +91,15 @@ block content
       .col-lg-5.semi-cards.text-secondary
         p Top Scorer IBA league 40.2 a game and a 66 point game London, China.
         p – Kwan Waller’s success story
+  .container-fluid.join-red-section
+    .container.text-center
+      .row.justify-content-around
+        .col-md-6.red-join-us
+          h2.text-white Explore Career Opportunities
+          p.text-white Join for Free to start achieving your dreams.
+        .col-md-6.text-center
+          a(class="btn btn-outline-light join-us-btn" href="/register") Join Us
+
   footer.container-fluid
     .row.text-secondary.d-flex.justify-content-between
       .col-xs-6.left-side-footer
@@ -99,7 +109,7 @@ block content
       .col-xs-6.right-side-footer.d-flex.justify-content-end
         a(class="link" href="https://www.facebook.com/UHoopsDotCom/")
           i(class="fab fa-facebook fa-2x icon")
-        a(class="link" href="")
+        a(class="link" href="https://twitter.com/UHOOPSDOTCOM")
           i(class="fab fa-twitter-square fa-2x icon")
 
 
