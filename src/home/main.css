@@ -81,6 +81,11 @@ body {
 
 .semi-cards {
   background: rgb(30, 33, 35);
+  margin-bottom: 45px;
+}
+
+.success-stories {
+  padding: 50px;
 }
 
 @media (max-width: 768px) { 
