@@ -75,6 +75,14 @@ body {
   border: 2px solid;
 }
 
+.explore-opportunity {
+  padding: 50px;
+}
+
+.semi-cards {
+  background: rgb(30, 33, 35);
+}
+
 @media (max-width: 768px) { 
 
   .global-network-p {
