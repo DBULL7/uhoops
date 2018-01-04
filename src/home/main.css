@@ -90,5 +90,11 @@ body {
   }
 }
 
+@media (max-width: 576px) {
+  .tag {
+    font-size: 45px;
+  }
+}
+
 
 
