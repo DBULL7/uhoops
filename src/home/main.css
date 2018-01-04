@@ -2,6 +2,15 @@ html, body {
   height: 100vh;
 }
 
+body {
+  padding-top: 58px;
+  background: #343a40!important;
+}
+
+.nav-logo {
+  margin-right: 10px;
+}
+
 #hero-img {
   background-image: url("/assets/basketball.jpg");
   background-position: center;
@@ -10,9 +19,68 @@ html, body {
   position: relative;
   height: 525px;
   max-width: 100%;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .tag {
-  font-size: 90px;
-  
+  font-size: 80px;
 }
+
+.sub-tag {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.global-network {
+  padding: 50px;
+  text-align: center;
+}
+
+.global-network-text {
+  display: flex;
+  justify-content: center;
+}
+
+.global-network-p {
+  width: 50%;
+  line-height: 2;
+  font-size: 20px;
+}
+
+.three-perks {
+  padding: 30px;
+  background: url('/assets/gym-background.jpg');
+  background-size: cover;
+  max-width: 100%;
+}
+
+.icon {
+  color: #ee6058;
+}
+
+
+.divider {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#join-us-btn {
+  width: 140px;
+  height: 40px;
+  align-self: center;
+  margin-top: 20px;
+  border: 2px solid;
+}
+
+@media (max-width: 768px) { 
+
+  .global-network-p {
+    width: 200%;
+  }
+}
+
+
+

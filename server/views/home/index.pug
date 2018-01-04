@@ -6,27 +6,51 @@ append head
   link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous")
   
 block content 
-  nav(class="navbar navbar-expand-lg navbar-dark bg-dark")
-      a(class="navbar-brand" href="/")
-        img(src="/assets/logo.png" width="30" height="30")
+  nav(class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark")
+      a(class="navbar-brand" href="/") 
+        img(src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top nav-logo")
+        | U-Hoops 
       button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
         span(class="navbar-toggler-icon")
-      div(class="collapse navbar-collapse" id="navbarSupportedContent")
+      div(class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent")
         ul(class="navbar-nav")
           li(class="nav-item")
             a(class="nav-link" href="/about") About
           li(class="nav-item")
             a(class="nav-link" href="/tours") Tours 
-  div(id="hero-img" class="text-center")
+          li.nav-item
+            a(class="nav-link" href="/login") Login
+  div(id="hero-img" class="text-center container")
     h2.text-white.tag Global Basketball Network
-    h3.text-white Inspire, Connect, and Empower Players and Other Affiliates
-    button(type="button" class="btn btn-outline-light") Join Us
-  div(class="container-fluid bg-dark text-center")
+    h3.text-white.sub-tag Inspire, Connect, and Empower Players
+    button(type="button" class="btn btn-outline-light" id="join-us-btn") Join Us
+  div(class="container bg-dark text-center global-network")
     h2.text-white Global Network
-    img(src="/assets/divider-xx-red.png", alt="divider icon")
-    p.text-secondary U-Hoops is basketball network platform that brings players, scouts, coaches and sports professionals on a platform to connect all over the world, while providing them the tools and data to create career opportunities.
-  .row 
-    
+    img(src="/assets/divider-xx-red.png", alt="divider icon" class="divider")
+    .container.global-network-text
+      p.text-secondary.global-network-p U-Hoops is basketball network platform that brings players, scouts, coaches and sports professionals on a platform to connect all over the world, while providing them the tools and data to create career opportunities.
+  .container-fluid.three-perks
+    .row 
+      .col-lg-4.text-center 
+        i(class="fab fa-connectdevelop fa-2x icon") 
+        .container 
+          img(src="/assets/divider-x-red.png" class="divider")
+          h2.text-white Professional Network 
+          p.text-secondary Connect with scouts, coaches, and other players to grow your network
+      .col-lg-4.text-center
+        i(class="fas fa-search fa-2x icon") 
+        .container
+          img(src="/assets/divider-x-red.png" class="divider")
+          h2.text-white Discover Opportunies 
+          p.text-secondary Apply to go on tour to countries like China, Spain, and many more! 
+      .col-lg-4.text-center  
+        i(class="far fa-lightbulb fa-2x icon") 
+          
+        .container 
+          img(src="/assets/divider-x-red.png" class="divider")
+          h2.text-white Improve Your Skills  
+          p.text-secondary Gain access to resources to help you on and off the court  
+
 
   script(asynce, src="home/index.js")
   script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
