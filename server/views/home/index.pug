@@ -28,8 +28,8 @@ block content
     h2.text-white.tag Global Basketball Network
     h3.text-white.sub-tag Inspire, Connect, and Empower Players
     .row.justify-content-center.divider
-      a(class="btn btn-outline-light join-us-btn main-btn" href="/register") Join Us
-      a(class="btn btn-outline-light join-us-btn main-btn" href="/login") Login
+      button(class="btn btn-outline-light join-us-btn main-btn" data-toggle="modal" data-target="#register") Join Us
+      button(class="btn btn-outline-light join-us-btn main-btn" data-toggle="modal" data-target="#login") Login
   div(class="container bg-dark text-center global-network")
     h2(class="text-white section-title") Global Network
     img(src="/assets/divider-xx-red.png", alt="divider icon" class="divider")
@@ -124,6 +124,46 @@ block content
         p.space &copy; 2018
         p.side-bars.space U-HOOPS L.L.C
         p.left-space All Rights Reserved
+
+  div(class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+    div(class="modal-dialog modal-dialog-centered " role="document")
+      div(class="modal-content")
+        div(class="modal-header bg-dark")
+          h5(class="modal-title text-white" id="exampleModalLongTitle") Register
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(class="text-white" aria-hidden="true") &times;
+        div(class="modal-body") 
+          div(class="form-group")
+            label(for="name" class="col-form-label") Name
+            input(type="text" class="form-control" id="name")
+          div(class="form-group")
+            label(for="email" clas="col-form-label") Email
+            input(type="email" class="form-control" id="email")
+          div(class="form-group")
+            label(for="password" class="col-form-label") Password
+            input(type="password" class="form-control" id="password")
+          div(class="form-group")
+            label(for="confirmPassword" class="col-form-label") Confirm Password
+            input(type="password" class="form-control" id="confirmPassword")
+        div(class="modal-footer")
+          button(type="button" class="btn btn-primary") Create Account 
+
+  div(class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+    div(class="modal-dialog modal-dialog-centered " role="document")
+      div(class="modal-content")
+        div(class="modal-header bg-dark")
+          h5(class="modal-title text-white" id="exampleModalLongTitle") Login
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(class="text-white" aria-hidden="true") &times;
+        div(class="modal-body") 
+          div(class="form-group")
+            label(for="email-login" clas="col-form-label") Email
+            input(type="email" class="form-control" id="email-login")
+          div(class="form-group")
+            label(for="password-login" class="col-form-label") Password
+            input(type="password" class="form-control" id="password-login")
+        div(class="modal-footer")
+          button(type="button" class="btn btn-primary") Login 
 
 
 

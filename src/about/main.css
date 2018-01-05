@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-  /* padding-top: 58px; */
+  padding-top: 58px;
   background: #343a40!important;
 }
 
@@ -38,9 +38,3 @@ nav {
   justify-content: center;
 }
 
-
-@media (min-width: 992px) {
-  nav {
-    background: transparent;
-  }
-}
