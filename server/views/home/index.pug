@@ -63,14 +63,14 @@ block content
       .col-lg-5.semi-cards
         span.text-center
           p.text-secondary For Players
-        ul.text-secondary.text-center
+        ul.text-secondary.text-center.opportunity-ul
           li Exclusive access to U-Hoops and affiliated camps and tours in the U.S. and abroad.
           li Online and telephone advising sessions with sports professionals ranging from athletes to former scouts and coaches. 
           li Get recognition and grow your network from your personal profile.
       .col-lg-5.semi-cards
         span.text-center
           p.text-secondary For Professionals 
-        ul.text-secondary 
+        ul.text-secondary.opportunity-ul 
           li Monthly recommendations of motivated players that fit your team-specific needs in terms of position and skills.
           li Insights into player personalities and tendencies so it is easier to understand what role they will play in a team.
           li Opportunities to promote and gain access for your players to compete in tours and camps in the U.S. and other countries.
@@ -113,18 +113,17 @@ block content
             button(class="btn btn-outline-secondary" type="button") Subscribe 
           
           
-
-  footer.container-fluid
-    .row.text-secondary.d-flex.justify-content-between
-      .col-xs-6.left-side-footer
+  .container.text-center.divider
+      a(class="link" href="https://www.facebook.com/UHoopsDotCom/")
+        i(class="fab fa-facebook fa-3x icon sm")
+        a(class="link" href="https://twitter.com/UHOOPSDOTCOM")
+          i(class="fab fa-twitter-square fa-3x icon sm")
+  footer.container
+    .row.text-secondary
         p.space &copy; 2018
         p.side-bars.space U-HOOPS L.L.C
         p.left-space All Rights Reserved
-      .col-xs-6.right-side-footer.d-flex.justify-content-end
-        a(class="link" href="https://www.facebook.com/UHoopsDotCom/")
-          i(class="fab fa-facebook fa-2x icon")
-        a(class="link" href="https://twitter.com/UHOOPSDOTCOM")
-          i(class="fab fa-twitter-square fa-2x icon")
+
 
 
   script(asynce, src="home/index.js")

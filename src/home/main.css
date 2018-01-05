@@ -141,13 +141,11 @@ footer {
   font-size: 14px;
 }
 
-.left-side-footer {
-  display: flex;
-}
+
 
 .space {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .left-space {
@@ -168,6 +166,12 @@ footer {
 .join {
   margin-top: 10px;
 }
+
+.sm:hover {
+  color: white;
+}
+
+
 
 @media (min-width: 992px) {
   nav {
@@ -218,6 +222,9 @@ footer {
 
   .subscribe-width {
     width: 70%;
+  }
+  .opportunity-ul {
+    padding-left: 0px;
   }
 }
 
