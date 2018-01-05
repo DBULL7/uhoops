@@ -171,6 +171,10 @@ footer {
   color: white;
 }
 
+.main-btn {
+  margin: 5px;
+}
+
 
 
 @media (min-width: 992px) {

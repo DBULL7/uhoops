@@ -4,6 +4,7 @@ const extractSass = new ExtractTextPlugin('[name]/main.css')
 
 module.exports = {
   entry: {
+		about: './src/about',
     home: `./src/home/index.js`
   },
   output: {

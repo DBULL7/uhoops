@@ -1,0 +1,46 @@
+html, body {
+  height: 100vh;
+}
+
+body {
+  /* padding-top: 58px; */
+  background: #343a40!important;
+}
+
+nav {
+  background: #343a40;
+}
+
+.nav-link:hover {
+  color: #f31a0a!important;
+}
+
+.nav-link {
+  color: white!important;
+  margin-right: 10px;
+}
+
+.nav-logo {
+  margin-right: 10px;
+}
+
+#hero-img {
+  background-image: url("/assets/about-background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  max-width: 100%;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+@media (min-width: 992px) {
+  nav {
+    background: transparent;
+  }
+}
