@@ -121,6 +121,19 @@ nav {
   padding: 100px;
 }
 
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+}
+
+.subscribe-text {
+  width: 50%
+}
+
+.subscribe-width {
+  width: 70%;
+}
+
 footer {
   background: #191c1e;
   display: flex;
@@ -197,6 +210,14 @@ footer {
   }
   .red-join-us {
     text-align: center;
+  }
+
+  .subscribe {
+    padding: 50px;
+  }
+
+  .subscribe-width {
+    width: 70%;
   }
 }
 
