@@ -1,15 +1,15 @@
 extends ../layout 
 append head
   link(rel="stylesheet" href="about/main.css")
-  title About | U-Hoops 
+  title About | U-Hoop
   link(rel="shortcut icon" type="image/png" href="./assets/logo.png")
   link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous")
   
 block content 
-  nav(class="navbar navbar-expand-lg navbar-dark fixed-top")
+  nav(class="navbar navbar-expand-lg navbar-dark")
     a(class="navbar-brand" href="/") 
       img(src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top nav-logo")
-      | U-Hoops 
+      | U-Hoop
     button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
       span(class="navbar-toggler-icon")
     div(class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent")
@@ -20,12 +20,80 @@ block content
             a(class="dropdown-item" href="/tours") Tours 
             a(class="dropdown-item" href="/training-camps") Training Camps
             a(class="dropdown-item" href="/courses") Online Courses
-        li.nav-item
-          a(class="btn btn-outline-light" href="/login") Login
-        li.nav-item
-          a(class="btn btn-outline-light" href="/register") Sign up
-  div(id="hero-img" class="text-center container")
-    h2.text-white.tag About Us
+        li.nav-item.nav-btn
+          button(class="btn btn-outline-light" data-toggle="modal" data-target="#login") Login
+        li.nav-item.nav-btn
+          button(class="btn btn-outline-light" data-toggle="modal" data-target="#register") Sign up
+  div(id="hero-img" class="text-center container bg-tint")
+    h2.text-white.tag Changing the World Through Basketball
+    h4.text-white.sub-tag A platform for improving, connecting, and discovering career opportunities around the world
+  .container.section
+    .row
+      .col-md-7
+        h2.text-white.section-title Our Story 
+        p.text-secondary.story-text U-Hoop was founded by DeMarcus Weeks, a former NBA D-League player. 
+          | While playing abroad with a traveling team DeMarcus realized the opportunity to help players connect abroad to improve, stay sharp, and be discovered by scouts. 
+          | Since 2013 DeMarcus has taken players on tour in countries like Spain, China, and the Philippines. 
+          | While in the Philippines DeMarcus found overwhelming interest in basketball, with town mayors asking for his help to train local children. DeMarcus then realized that U-Hoop needed expand into a platform for players at all levels. Since then U-Hoop has been driven to connect, educate, and provide opportunities for players of all ages and skills. In short, U-Hoop was created by a player to be a place for players.
+      .col-md-5
+        img(src="/assets/demarcus.jpg" class="demarcus")
+
+  .container-fluid
+    .container.section
+      h2.text-white Our Team 
+
+
+  .container.text-center.divider
+    a(class="link" href="https://www.facebook.com/UHoopsDotCom/" target="_blank")
+      i(class="fab fa-facebook fa-3x icon sm")
+      a(class="link" href="https://twitter.com/UHOOPSDOTCOM" target="_blank")
+        i(class="fab fa-twitter-square fa-3x icon sm")
+  footer.container-fluid
+    .row.text-secondary
+        p.space &copy; 2018
+        p.side-bars.space U-HOOPS L.L.C
+        p.left-space All Rights Reserved
+
+  div(class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+    div(class="modal-dialog modal-dialog-centered " role="document")
+      div(class="modal-content")
+        div(class="modal-header bg-dark")
+          h5(class="modal-title text-white" id="exampleModalLongTitle") Register
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(class="text-white" aria-hidden="true") &times;
+        div(class="modal-body") 
+          div(class="form-group")
+            label(for="name" class="col-form-label") Name
+            input(type="text" class="form-control" id="name")
+          div(class="form-group")
+            label(for="email" clas="col-form-label") Email
+            input(type="email" class="form-control" id="email")
+          div(class="form-group")
+            label(for="password" class="col-form-label") Password
+            input(type="password" class="form-control" id="password")
+          div(class="form-group")
+            label(for="confirmPassword" class="col-form-label") Confirm Password
+            input(type="password" class="form-control" id="confirmPassword")
+        div(class="modal-footer")
+          button(type="button" class="btn btn-primary") Create Account 
+
+  div(class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+    div(class="modal-dialog modal-dialog-centered " role="document")
+      div(class="modal-content")
+        div(class="modal-header bg-dark")
+          h5(class="modal-title text-white" id="exampleModalLongTitle") Login
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(class="text-white" aria-hidden="true") &times;
+        div(class="modal-body") 
+          div(class="form-group")
+            label(for="email-login" clas="col-form-label") Email
+            input(type="email" class="form-control" id="email-login")
+          div(class="form-group")
+            label(for="password-login" class="col-form-label") Password
+            input(type="password" class="form-control" id="password-login")
+        div(class="modal-footer")
+          button(type="button" class="btn btn-primary") Login 
+
   // need tag 
   // need mission
   // need team 

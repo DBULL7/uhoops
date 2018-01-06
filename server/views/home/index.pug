@@ -1,6 +1,6 @@
 extends ../layout 
 append head
-  title U-Hoops
+  title U-Hoop
   link(rel="shortcut icon" type="image/png" href="./assets/logo.png")
   link(rel="stylesheet" href="home/main.css")
   link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous")
@@ -9,7 +9,7 @@ block content
   nav(class="navbar navbar-expand-lg navbar-dark fixed-top")
       a(class="navbar-brand" href="/") 
         img(src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top nav-logo")
-        | U-Hoops 
+        | U-Hoop
       button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
         span(class="navbar-toggler-icon")
       div(class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent")
@@ -27,14 +27,14 @@ block content
   div(id="hero-img" class="text-center container")
     h2.text-white.tag Global Basketball Network
     h3.text-white.sub-tag Inspire, Connect, and Empower Players
-    .row.justify-content-center.divider
+    .row.justify-content-center
       button(class="btn btn-outline-light join-us-btn main-btn" data-toggle="modal" data-target="#register") Join Us
       button(class="btn btn-outline-light join-us-btn main-btn" data-toggle="modal" data-target="#login") Login
   div(class="container bg-dark text-center global-network")
     h2(class="text-white section-title") Global Network
     img(src="/assets/divider-xx-red.png", alt="divider icon" class="divider")
     .container.global-network-text
-      p.text-secondary.global-network-p U-Hoops is basketball platform that brings players, scouts, coaches and sports professionals on to a single platform to connect all over the world, while providing them the tools and data to create career opportunities.
+      p.text-secondary.global-network-p U-Hoop is basketball platform that brings players, scouts, coaches and sports professionals on to a single platform to connect all over the world, while providing them the tools and data to create career opportunities.
   .container-fluid.three-perks
     .row 
       .col-lg-4.text-center 
@@ -80,10 +80,10 @@ block content
     img(src="/assets/divider-xx-red.png" class="divider")
     .row.justify-content-around
       .col-lg-5.semi-cards.text-secondary
-        p “U-Hoops Tour was a great experience! Playing in Mexico was amazing and the staff really care about the players!”
+        p “U-Hoop Tour was a great experience! Playing in Mexico was amazing and the staff really care about the players!”
         p – Jimmy Langhurst (Pro Player)
       .col-lg-5.semi-cards.text-secondary
-        p “U-Hoops allows me to connect other athletes and helps display my work on a platform with athletes would never be able to connect.”
+        p “U-Hoop allows me to connect other athletes and helps display my work on a platform with athletes would never be able to connect.”
         p – Andrea Giotoilli
     .row.justify-content-around
       .col-lg-5.semi-cards.text-secondary
@@ -115,14 +115,14 @@ block content
           
           
   .container.text-center.divider
-      a(class="link" href="https://www.facebook.com/UHoopsDotCom/")
+      a(class="link" href="https://www.facebook.com/UHoopsDotCom/" target="_blank")
         i(class="fab fa-facebook fa-3x icon sm")
-        a(class="link" href="https://twitter.com/UHOOPSDOTCOM")
+        a(class="link" href="https://twitter.com/UHOOPSDOTCOM" target="_blank")
           i(class="fab fa-twitter-square fa-3x icon sm")
   footer.container-fluid
     .row.text-secondary
         p.space &copy; 2018
-        p.side-bars.space U-HOOPS L.L.C
+        p.side-bars.space U-HOOP L.L.C
         p.left-space All Rights Reserved
 
   div(class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
