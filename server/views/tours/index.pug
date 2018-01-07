@@ -1,0 +1,75 @@
+extends ../layout 
+append head
+  
+  title Tours | U-Hoop
+  link(rel="shortcut icon" type="image/png" href="./assets/logo.png")
+  link(rel="stylesheet" href="tours/main.css")
+  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous")
+block content 
+  nav(class="navbar navbar-expand-lg navbar-dark")
+    a(class="navbar-brand" href="/") 
+      img(src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top nav-logo")
+      | U-Hoop
+    button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+      span(class="navbar-toggler-icon")
+    div(class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent")
+      ul(class="navbar-nav")
+        li(class="nav-item dropdown")
+          a(class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Services
+          div(class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink")
+            a(class="dropdown-item" href="/tours") Tours 
+            a(class="dropdown-item" href="/training-camps") Training Camps
+            a(class="dropdown-item" href="/courses") Online Courses
+        li.nav-item.nav-btn
+          button(class="btn btn-outline-light" data-toggle="modal" data-target="#login") Login
+        li.nav-item.nav-btn
+          button(class="btn btn-outline-light" data-toggle="modal" data-target="#register") Sign up 
+          
+  div(id="hero-img" class="text-center container bg-tint")
+    h2.text-white.tag Changing the World Through Basketball
+    h4.text-white.sub-tag A platform for improving, connecting, and discovering career opportunities around the world
+
+  div(class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+    div(class="modal-dialog modal-dialog-centered " role="document")
+      div(class="modal-content")
+        div(class="modal-header bg-dark")
+          h5(class="modal-title text-white" id="exampleModalLongTitle") Register
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(class="text-white" aria-hidden="true") &times;
+        div(class="modal-body") 
+          div(class="form-group")
+            label(for="name" class="col-form-label") Name
+            input(type="text" class="form-control" id="name")
+          div(class="form-group")
+            label(for="email" clas="col-form-label") Email
+            input(type="email" class="form-control" id="email")
+          div(class="form-group")
+            label(for="password" class="col-form-label") Password
+            input(type="password" class="form-control" id="password")
+          div(class="form-group")
+            label(for="confirmPassword" class="col-form-label") Confirm Password
+            input(type="password" class="form-control" id="confirmPassword")
+        div(class="modal-footer")
+          button(type="button" class="btn btn-primary") Create Account 
+
+  div(class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+    div(class="modal-dialog modal-dialog-centered " role="document")
+      div(class="modal-content")
+        div(class="modal-header bg-dark")
+          h5(class="modal-title text-white" id="exampleModalLongTitle") Login
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(class="text-white" aria-hidden="true") &times;
+        div(class="modal-body") 
+          div(class="form-group")
+            label(for="email-login" clas="col-form-label") Email
+            input(type="email" class="form-control" id="email-login")
+          div(class="form-group")
+            label(for="password-login" class="col-form-label") Password
+            input(type="password" class="form-control" id="password-login")
+        div(class="modal-footer")
+          button(type="button" class="btn btn-primary") Login 
+  script(asynce, src="tours/index.js")
+  script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
+  script(defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js")

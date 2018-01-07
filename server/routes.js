@@ -15,3 +15,6 @@ r.post('/api/v1/account/login', account.login)
 
 const about = require('./controllers/about')
 r.get('/about', about.index)
+
+const tours = require('./controllers/tours')
+r.get('/tours', tours.index)
