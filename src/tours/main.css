@@ -75,6 +75,10 @@ nav {
 	padding: 50px;
 }
 
+.sm:hover {
+	color: white;
+}
+
 footer {
   background: #191c1e;
   display: flex;
@@ -94,6 +98,12 @@ footer {
 
 .left-space {
   padding-left: 15px;
+}
+
+@media (max-width: 576px) {
+	footer {
+		font-size: 10px;
+	}
 }
 
 @media (max-width: 992px) {
