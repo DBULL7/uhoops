@@ -100,6 +100,15 @@ footer {
   padding-left: 15px;
 }
 
+.test {
+  display: flex;
+  justify-content: center;
+}
+
+.test > p {
+  padding: 20px;
+}
+
 @media (max-width: 576px) {
 	footer {
 		font-size: 10px;
