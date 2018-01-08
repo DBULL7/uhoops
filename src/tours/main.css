@@ -36,3 +36,68 @@ nav {
   flex-direction: column;
   justify-content: center;
 }
+
+.bg-tint {
+	background-color: rgba(146, 143, 139, 0.65); 
+  background-blend-mode: multiply;
+}
+
+.nav-btn {
+   margin-right: 10px;
+}
+
+.tag {
+  font-size: 70px;
+}
+
+.sub-tag {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.section {
+	padding: 100px;
+}
+
+.divider {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.icon {
+  color: #ee6058;
+}
+
+.sm-container {
+	padding: 50px;
+}
+
+footer {
+  background: #191c1e;
+  display: flex;
+  padding-top: 15px;
+  font-size: 14px;
+}
+
+.side-bars {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+.space {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.left-space {
+  padding-left: 15px;
+}
+
+@media (max-width: 992px) {
+	.nav-btn {
+		margin-top: 5px;
+	}
+}
