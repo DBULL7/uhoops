@@ -18,3 +18,6 @@ r.get('/about', about.index)
 
 const tours = require('./controllers/tours')
 r.get('/tours', tours.index)
+
+const me = require('./controllers/me')
+r.get('/me', me.index)
