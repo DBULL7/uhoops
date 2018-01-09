@@ -21,38 +21,38 @@ let reduxContainerTemplate = fs.readFileSync(path.resolve(__dirname, './template
 reduxContainerTemplate = reduxContainerTemplate.replace(/Name/g, `${name}`)
 
 if (name) {
-  fs.mkdirSync(`./src/containers/${name}`)
+  fs.mkdirSync(`./src/home/containers/${name}`)
   if (type === 'dumb') {
-    fs.writeFile(`./src/containers/${name}/${name}.js`, dumbComponentTemplate, (err) => {
+    fs.writeFile(`./src/home/containers/${name}/${name}.js`, dumbComponentTemplate, (err) => {
       if (err) return console.log(err)
       console.log(`The Component ${name} was created!`)
     })
-    fs.writeFile(`./src/containers/${name}/${name}Container.js`, dumbReduxContainerTemplate, (err) => {
+    fs.writeFile(`./src/home/containers/${name}/${name}Container.js`, dumbReduxContainerTemplate, (err) => {
       if (err) return console.log(err)
       console.log(`The Container ${name} was created!`)
     })
   } else {
-    fs.writeFile(`./src/containers/${name}/${name}.js`, smartComponentTemplate, (err) => {
+    fs.writeFile(`./src/home/containers/${name}/${name}.js`, smartComponentTemplate, (err) => {
       if (err) return console.log(err)
       console.log(`The Component ${name} was created!`)
     })
-    fs.writeFile(`./src/containers/${name}/${name}Container.js`, reduxContainerTemplate, (err) => {
+    fs.writeFile(`./src/home/containers/${name}/${name}Container.js`, reduxContainerTemplate, (err) => {
       if (err) return console.log(err)
       console.log(`The Container ${name} was created!`)
     })
-    fs.writeFile(`./src/containers/${name}/${name}.css`, '', (err) => {
+    fs.writeFile(`./src/home/containers/${name}/${name}.css`, '', (err) => {
       if (err) return console.log(err)
       console.log('CSS File was Created')
     })
-    if (fs.existsSync('./src/containers/App/App.js')) {
+    if (fs.existsSync('./src/home/containers/App/App.js')) {
       let search = '<Switch>'
-      let body = fs.readFileSync('./src/containers/App/App.js', 'utf8').toString().split('\n')
+      let body = fs.readFileSync('./src/home/containers/App/App.js', 'utf8').toString().split('\n')
       body.splice(4, 0, `import ${name}Container from '../${name}/${name}Container'`)
       let newBody = body.join('\n')
       let position = newBody.indexOf(search)
       let newRoute = `\n\t\t\t\t  <Route exact path='/${name.toLowerCase()}' render={(history) => {\n\t\t\t\t\u0020\u0020\u0020\u0020return <${name}Container/>\n\t\t\t\t  }}/>`
       let output = [newBody.slice(0, position + 8), newRoute, newBody.slice(position + 8)].join('')
-      fs.writeFile('./src/containers/App/App.js', output, (err) => {
+      fs.writeFile('./src/home/containers/App/App.js', output, (err) => {
         if (err) console.error(err)
       })
     }

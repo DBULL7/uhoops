@@ -25605,9 +25605,105 @@ var Home = function (_Component) {
   }
 
   _createClass(Home, [{
-    key: 'render',
+    key: "render",
     value: function render() {
-      return _react2.default.createElement('div', null);
+      return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement(
+          "nav",
+          { className: "navbar navbar-expand-lg navbar-dark bg-dark" },
+          _react2.default.createElement(
+            "a",
+            { className: "navbar-brand", href: "#" },
+            "Navbar"
+          ),
+          _react2.default.createElement(
+            "button",
+            { className: "navbar-toggler", type: "button", "data-toggle": "collapse", "data-target": "#navbarSupportedContent", "aria-controls": "navbarSupportedContent", "aria-expanded": "false", "aria-label": "Toggle navigation" },
+            _react2.default.createElement("span", { className: "navbar-toggler-icon" })
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "collapse navbar-collapse", id: "navbarSupportedContent" },
+            _react2.default.createElement(
+              "ul",
+              { className: "navbar-nav mr-auto" },
+              _react2.default.createElement(
+                "li",
+                { className: "nav-item active" },
+                _react2.default.createElement(
+                  "a",
+                  { className: "nav-link", href: "#" },
+                  "Home ",
+                  _react2.default.createElement(
+                    "span",
+                    { className: "sr-only" },
+                    "(current)"
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                "li",
+                { className: "nav-item" },
+                _react2.default.createElement(
+                  "a",
+                  { className: "nav-link", href: "#" },
+                  "Link"
+                )
+              ),
+              _react2.default.createElement(
+                "li",
+                { className: "nav-item dropdown" },
+                _react2.default.createElement(
+                  "a",
+                  { className: "nav-link dropdown-toggle", href: "#", id: "navbarDropdown", role: "button", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" },
+                  "Dropdown"
+                ),
+                _react2.default.createElement(
+                  "div",
+                  { className: "dropdown-menu", "aria-labelledby": "navbarDropdown" },
+                  _react2.default.createElement(
+                    "a",
+                    { className: "dropdown-item", href: "#" },
+                    "Action"
+                  ),
+                  _react2.default.createElement(
+                    "a",
+                    { className: "dropdown-item", href: "#" },
+                    "Another action"
+                  ),
+                  _react2.default.createElement("div", { className: "dropdown-divider" }),
+                  _react2.default.createElement(
+                    "a",
+                    { className: "dropdown-item", href: "#" },
+                    "Something else here"
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                "li",
+                { className: "nav-item" },
+                _react2.default.createElement(
+                  "a",
+                  { className: "nav-link disabled", href: "#" },
+                  "Disabled"
+                )
+              )
+            ),
+            _react2.default.createElement(
+              "form",
+              { className: "form-inline my-2 my-lg-0" },
+              _react2.default.createElement("input", { className: "form-control mr-sm-2", type: "search", placeholder: "Search", "aria-label": "Search" }),
+              _react2.default.createElement(
+                "button",
+                { className: "btn btn-outline-success my-2 my-sm-0", type: "submit" },
+                "Search"
+              )
+            )
+          )
+        )
+      );
     }
   }]);
 
