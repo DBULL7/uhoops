@@ -7,7 +7,9 @@
     "api": "node enzo/api.js",
     "build": "webpack --watch",
     "prod": "webpack --config webpack.prod.js",
-    "model": "node enzo/model.js"
+    "model": "node enzo/model.js",
+    "action": "node enzo/action.js",
+    "redux": "node enzo/redux.js"
   },
   "dependencies": {
     "babel-preset-react": "^6.24.1",

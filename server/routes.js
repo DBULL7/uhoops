@@ -2,8 +2,8 @@ const express = require('express')
 const r = express.Router()
 module.exports = r
 
-const home = require('./controllers/home')
-r.get('/', home.index)
+const landing = require('./controllers/landing')
+r.get('/', landing.index)
 
 
 const account = require('./controllers/account')
@@ -19,5 +19,5 @@ r.get('/about', about.index)
 const tours = require('./controllers/tours')
 r.get('/tours', tours.index)
 
-const me = require('./controllers/me')
-r.get('/me', me.index)
+const home = require('./controllers/home')
+r.get('/home', home.index)
