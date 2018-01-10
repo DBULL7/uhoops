@@ -24,3 +24,7 @@ r.get('/home', home.index)
 
 const camps = require('./controllers/camps')
 r.get('/camps', camps.index)
+r.get('/home/messaging', home.messaging)
+r.get('/home/notifications', home.notifications)
+r.get('/home/tours', home.tours)
+r.get('/home/profile', home.profile)
