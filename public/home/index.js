@@ -25651,36 +25651,7 @@ var Home = function (_Component) {
                 _react2.default.createElement(
                   "a",
                   { className: "nav-link", href: "#" },
-                  "Link"
-                )
-              ),
-              _react2.default.createElement(
-                "li",
-                { className: "nav-item dropdown" },
-                _react2.default.createElement(
-                  "a",
-                  { className: "nav-link dropdown-toggle", href: "#", id: "navbarDropdown", role: "button", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" },
-                  "Dropdown"
-                ),
-                _react2.default.createElement(
-                  "div",
-                  { className: "dropdown-menu", "aria-labelledby": "navbarDropdown" },
-                  _react2.default.createElement(
-                    "a",
-                    { className: "dropdown-item", href: "#" },
-                    "Action"
-                  ),
-                  _react2.default.createElement(
-                    "a",
-                    { className: "dropdown-item", href: "#" },
-                    "Another action"
-                  ),
-                  _react2.default.createElement("div", { className: "dropdown-divider" }),
-                  _react2.default.createElement(
-                    "a",
-                    { className: "dropdown-item", href: "#" },
-                    "Something else here"
-                  )
+                  "Messages"
                 )
               ),
               _react2.default.createElement(
@@ -25688,8 +25659,17 @@ var Home = function (_Component) {
                 { className: "nav-item" },
                 _react2.default.createElement(
                   "a",
-                  { className: "nav-link disabled", href: "#" },
-                  "Disabled"
+                  { className: "nav-link", href: "#" },
+                  "Notifications"
+                )
+              ),
+              _react2.default.createElement(
+                "li",
+                { className: "nav-item" },
+                _react2.default.createElement(
+                  "a",
+                  { className: "nav-link", href: "#" },
+                  "Me"
                 )
               )
             ),
@@ -25699,7 +25679,7 @@ var Home = function (_Component) {
               _react2.default.createElement("input", { className: "form-control mr-sm-2", type: "search", placeholder: "Search", "aria-label": "Search" }),
               _react2.default.createElement(
                 "button",
-                { className: "btn btn-outline-success my-2 my-sm-0", type: "submit" },
+                { className: "btn btn-outline-white my-2 my-sm-0", type: "submit" },
                 "Search"
               )
             )
