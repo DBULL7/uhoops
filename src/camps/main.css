@@ -105,6 +105,10 @@ footer {
 	color: white;
 }
 
+.about-camps-container {
+  width: 50%;
+}
+
 @media (min-width: 992px) {
   .nav-btn {
     margin-right: 10px;
@@ -116,4 +120,14 @@ footer {
 		margin-right: 0;
 		margin-top: 5px;
 	}
+}
+
+@media (max-width: 576px) {
+  .about-camps-container {
+    width: 80%!important;
+  }
+
+  .about-camps {
+    font-size: 14px;
+  }
 }
