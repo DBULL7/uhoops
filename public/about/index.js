@@ -60,24 +60,24 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 120);
+/******/ 	return __webpack_require__(__webpack_require__.s = 122);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 120:
+/***/ 122:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(121);
+__webpack_require__(123);
 
 console.log('hello world');
 
 /***/ }),
 
-/***/ 121:
+/***/ 123:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

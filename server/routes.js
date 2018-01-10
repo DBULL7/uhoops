@@ -21,3 +21,6 @@ r.get('/tours', tours.index)
 
 const home = require('./controllers/home')
 r.get('/home', home.index)
+
+const camps = require('./controllers/camps')
+r.get('/camps', camps.index)

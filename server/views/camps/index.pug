@@ -1,12 +1,11 @@
 extends ../layout 
 append head
-  link(rel="stylesheet" href="about/main.css")
-  title About | U-Hoop
+  title Camps | U-Hoop
   link(rel="shortcut icon" type="image/png" href="./assets/logo.png")
+  link(rel="stylesheet" href="camps/main.css")
   link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous")
-  
 block content 
-  nav(class="navbar navbar-expand-lg navbar-dark")
+  nav(class="navbar navbar-expand-lg navbar-dark bg-dark")
     a(class="navbar-brand" href="/") 
       img(src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top nav-logo")
       | U-Hoop
@@ -23,33 +22,53 @@ block content
         li.nav-item.nav-btn
           button(class="btn btn-outline-light" data-toggle="modal" data-target="#login") Login
         li.nav-item.nav-btn
-          button(class="btn btn-outline-light" data-toggle="modal" data-target="#register") Sign up
+          button(class="btn btn-outline-light" data-toggle="modal" data-target="#register") Sign up 
+
   div(id="hero-img" class="text-center container bg-tint")
-    h2.text-white.tag Changing the World Through Basketball
-    h4.text-white.sub-tag A platform for improving, connecting, and discovering career opportunities around the world
+    h2.text-white.tag Camps
+
   .container.section
-    .row
-      .col-md-7
-        h2.text-white.section-title.center-mobile Our Story 
-        img(src="/assets/divider-xx-red.png" class="center-img-mobile")
-        p.text-secondary.story-text U-Hoop was founded by DeMarcus Weeks, a former NBA D-League player. 
-          | While playing abroad with a traveling team DeMarcus realized the opportunity to help players connect abroad to improve, stay sharp, and be discovered by scouts. 
-          | Since 2013 DeMarcus has taken players on tour in countries like Spain, China, and the Philippines. 
-          | While in the Philippines DeMarcus found overwhelming interest in basketball, with town mayors asking for his help to train local children. DeMarcus then realized that U-Hoop needed expand into a platform for players at all levels. Since then U-Hoop has been driven to connect, educate, and provide opportunities for players of all ages and skills. In short, U-Hoop was created by a player to be a place for players.
-      .col-md-5
-        img(src="/assets/demarcus.jpg" class="demarcus")
+    h2.section-title.text-white.text-center 2018 Camps 
+    .row.justify-content-center
+      img(src="/assets/divider-xx-red.png" class="divider")
+    .container.text-secondary.text-center.about-camps
+      p Kids Camp Mar  9 Kansas City, MO
+      p Kids Camp June 8-9 Kansas City, MO
+      p Kids Camp July 27-28 Memphis, TN
+      p Pro Camp Tour Draft  June 29-30 (College SR ONLY)
+      p Additional Camps TBA 
+
+  .container.section
+    h2.section-title.text-white.text-center About Camps
+    .row.justify-content-center
+      img(src="/assets/divider-xx-red.png" class="divider") 
+    .row.text-secondary.justify-content-center.text-center
+      .row.w-50
+        p.about-camps Campers will experience various drills, specializing in the fundamental skills of basketball. Individual groups will be small to ensure that each camper gets maximum instruction from our experts. We focus on small groups to better engage campers and help with development in the fundamental of basketball and life skills. We pride ourselves on giving campers techniques to improve their basketball abilities, as well as character building, and preparation for college.
+  .container.section
+    h2.section-title.text-white.text-center Rates
+    .row.justify-content-center
+      img(src="/assets/divider-xx-red.png" class="divider") 
+    .container.text-secondary.text-center.about-camps
+      p Group Rate for 10: $425
+      p Team Rate: $350 
+      p 2 Camp Day: $150
+      p 1 Camp Day: $80
+      p Kids camp: $200 (Early Bird Special $150)
 
 
   .container.text-center.divider.sm-container
     a(class="link" href="https://www.facebook.com/UHoopsDotCom/" target="_blank")
       i(class="fab fa-facebook fa-3x icon sm")
-      a(class="link" href="https://twitter.com/UHOOPSDOTCOM" target="_blank")
-        i(class="fab fa-twitter-square fa-3x icon sm")
+    a(class="link" href="https://twitter.com/UHOOPSDOTCOM" target="_blank" class="left-space")
+      i(class="fab fa-twitter-square fa-3x icon sm")
   footer.container-fluid
     .row.text-secondary
         p.space &copy; 2018
-        p.side-bars.space U-HOOPS L.L.C
+        p.side-bars.space U-HOOP L.L.C
         p.left-space All Rights Reserved
+
+
 
   div(class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
     div(class="modal-dialog modal-dialog-centered " role="document")
@@ -90,14 +109,9 @@ block content
             input(type="password" class="form-control" id="password-login")
         div(class="modal-footer")
           button(type="button" class="btn btn-primary") Login 
-
-  // need tag 
-  // need mission
-  // need team 
-  // need an news section to show the places DeMarcus has been on
-  script(asynce, src="about/index.js")
+    
+  script(async, src="camps/index.js")
   script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
   script(defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js")
-
