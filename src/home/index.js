@@ -1,4 +1,5 @@
 import React from 'react'
+import './main.css'
 import ReactDOM from 'react-dom'
 import App from './containers/App/AppContainer'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
