@@ -1,8 +1,9 @@
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import Nav from './Nav'
 
 const mapStateToProps = (state) => {
   return state
 }
 
-export default connect(mapStateToProps, null)(Nav)
+export default withRouter(connect(mapStateToProps, null)(Nav))

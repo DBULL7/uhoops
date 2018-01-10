@@ -3734,13 +3734,8 @@ var _configureStore = __webpack_require__(122);
 
 var _reactRedux = __webpack_require__(12);
 
-var _createBrowserHistory = __webpack_require__(42);
-
-var _createBrowserHistory2 = _interopRequireDefault(_createBrowserHistory);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var history = (0, _createBrowserHistory2.default)();
 var store = (0, _configureStore.configureStore)();
 
 _reactDom2.default.render(_react2.default.createElement(
@@ -3748,7 +3743,7 @@ _reactDom2.default.render(_react2.default.createElement(
   { store: store },
   _react2.default.createElement(
     _reactRouterDom.BrowserRouter,
-    { history: history },
+    null,
     _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _AppContainer2.default })
   )
 ), document.getElementById('root'));
@@ -25677,6 +25672,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(12);
 
+var _reactRouterDom = __webpack_require__(41);
+
 var _Nav = __webpack_require__(120);
 
 var _Nav2 = _interopRequireDefault(_Nav);
@@ -25687,7 +25684,7 @@ var mapStateToProps = function mapStateToProps(state) {
   return state;
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(_Nav2.default);
+exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(_Nav2.default));
 
 /***/ }),
 /* 120 */
@@ -25752,7 +25749,7 @@ var Nav = function (_Component) {
               { className: 'nav-item' },
               _react2.default.createElement(
                 _reactRouterDom.NavLink,
-                { to: '/home', activeClassName: 'active', className: 'nav-link home' },
+                { exact: true, to: '/home', activeClassName: 'selected', className: 'nav-link home' },
                 _react2.default.createElement('i', { className: 'fas fa-home' }),
                 _react2.default.createElement(
                   'span',
@@ -25766,7 +25763,7 @@ var Nav = function (_Component) {
               { className: 'nav-item' },
               _react2.default.createElement(
                 _reactRouterDom.NavLink,
-                { className: 'nav-link', activeClassName: 'active', to: '/home/messaging' },
+                { className: 'nav-link', activeClassName: 'selected', to: '/home/messaging' },
                 _react2.default.createElement('i', { className: 'fas fa-comments' }),
                 _react2.default.createElement(
                   'span',
@@ -25780,7 +25777,7 @@ var Nav = function (_Component) {
               { className: 'nav-item' },
               _react2.default.createElement(
                 _reactRouterDom.NavLink,
-                { activeClassName: 'active', className: 'nav-link', to: '/home/notifications' },
+                { activeClassName: 'selected', className: 'nav-link', to: '/home/notifications' },
                 _react2.default.createElement('i', { className: 'fas fa-bell' }),
                 _react2.default.createElement(
                   'span',
@@ -25793,8 +25790,8 @@ var Nav = function (_Component) {
               'li',
               { className: 'nav-item dropdown' },
               _react2.default.createElement(
-                _reactRouterDom.NavLink,
-                { activeClassName: 'active', className: 'nav-link dropdown-toggle', to: '/home/profile', id: 'navbarDropdown', role: 'button', 'data-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
+                'a',
+                { className: 'nav-link dropdown-toggle', id: 'navbarDropdown', role: 'button', 'data-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false' },
                 _react2.default.createElement('i', { className: 'fas fa-user' }),
                 _react2.default.createElement(
                   'span',
@@ -25833,7 +25830,7 @@ var Nav = function (_Component) {
               { className: 'nav-item' },
               _react2.default.createElement(
                 _reactRouterDom.NavLink,
-                { activeClassName: 'active', className: 'nav-link', to: '/home/tours' },
+                { activeClassName: 'selected', className: 'nav-link', to: '/home/tours' },
                 _react2.default.createElement('i', { className: 'fas fa-globe' }),
                 _react2.default.createElement(
                   'span',
