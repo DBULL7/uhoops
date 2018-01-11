@@ -1,7 +1,7 @@
 import './main.css'
 let log = console.log
 
-$('#email-login').on('blur', () => {
+$('#email-login').on('keydown', () => {
   let email = $('#email-login').val()
   let password = $('#password-login').val()
   if (email.length && password.length) {
@@ -11,7 +11,7 @@ $('#email-login').on('blur', () => {
   }
 })
 
-$('#password-login').on('blur', () => {
+$('#password-login').on('keydown', () => {
   let email = $('#email-login').val()
   let password = $('#password-login').val()
   if (email.length && password.length) {
@@ -34,7 +34,7 @@ $("#login-btn").click(function () {
   .then(data => {
     log('this is the data: ', data)
     if (data.message === 'Success') {
-      window.location.href = '/home';
+      location.reload();
     } else if (data.message === 'Wrong Password.') {
       $("#email-login").removeClass('border-danger')
       $("#password-login").addClass('border-danger')

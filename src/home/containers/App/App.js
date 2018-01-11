@@ -14,16 +14,16 @@ class App extends Component {
       <section>
         <NavContainer/>
         <Switch>
-				  <Route exact path='/home/tours' render={(history) => {
+				  <Route exact path='/tours' render={(history) => {
 				    return <ToursContainer/>
 				  }}/>
-				  <Route exact path='/home/notifications' render={(history) => {
+				  <Route exact path='/notifications' render={(history) => {
 				    return <NotificationsContainer/>
 				  }}/>
-				  <Route exact path='/home/profile' render={(history) => {
+				  <Route exact path='/profile' render={(history) => {
 				    return <ProfileContainer/>
 				  }}/>
-				  <Route exact path='/home/messaging' render={(history) => {
+				  <Route exact path='/messaging' render={(history) => {
 				    return <MessagingContainer/>
 				  }}/>
           <Route path='/' render={(history) => {

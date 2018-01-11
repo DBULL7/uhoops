@@ -75,7 +75,7 @@ __webpack_require__(141);
 
 var log = console.log;
 
-$('#email-login').on('blur', function () {
+$('#email-login').on('keydown', function () {
   var email = $('#email-login').val();
   var password = $('#password-login').val();
   if (email.length && password.length) {
@@ -85,7 +85,7 @@ $('#email-login').on('blur', function () {
   }
 });
 
-$('#password-login').on('blur', function () {
+$('#password-login').on('keydown', function () {
   var email = $('#email-login').val();
   var password = $('#password-login').val();
   if (email.length && password.length) {
@@ -108,7 +108,7 @@ $("#login-btn").click(function () {
   }).then(function (data) {
     log('this is the data: ', data);
     if (data.message === 'Success') {
-      window.location.href = '/home';
+      location.reload();
     } else if (data.message === 'Wrong Password.') {
       $("#email-login").removeClass('border-danger');
       $("#password-login").addClass('border-danger');

@@ -21,11 +21,10 @@ const tours = require('./controllers/tours')
 r.get('/tours', tours.index)
 
 const home = require('./controllers/home')
-r.get('/home', checkAuth, home.index)
-r.get('/home/messaging', checkAuth, home.messaging)
-r.get('/home/notifications', checkAuth, home.notifications)
-r.get('/home/tours', checkAuth, home.tours)
-r.get('/home/profile', checkAuth, home.profile)
+r.get('/messaging', checkAuth, home.messaging)
+r.get('/notifications', checkAuth, home.notifications)
+r.get('/tours', checkAuth, home.tours)
+r.get('/profile', checkAuth, home.profile)
 
 
 const camps = require('./controllers/camps')

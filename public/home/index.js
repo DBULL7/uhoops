@@ -22599,16 +22599,16 @@ var App = function (_Component) {
         _react2.default.createElement(
           _reactRouterDom.Switch,
           null,
-          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/home/tours', render: function render(history) {
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/tours', render: function render(history) {
               return _react2.default.createElement(_ToursContainer2.default, null);
             } }),
-          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/home/notifications', render: function render(history) {
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/notifications', render: function render(history) {
               return _react2.default.createElement(_NotificationsContainer2.default, null);
             } }),
-          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/home/profile', render: function render(history) {
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/profile', render: function render(history) {
               return _react2.default.createElement(_ProfileContainer2.default, null);
             } }),
-          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/home/messaging', render: function render(history) {
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/messaging', render: function render(history) {
               return _react2.default.createElement(_MessagingContainer2.default, null);
             } }),
           _react2.default.createElement(_reactRouterDom.Route, { path: '/', render: function render(history) {
@@ -26093,7 +26093,7 @@ var Nav = function (_Component) {
               { className: 'nav-item' },
               _react2.default.createElement(
                 _reactRouterDom.NavLink,
-                { exact: true, to: '/home', activeClassName: 'selected', className: 'nav-link home' },
+                { exact: true, to: '/', activeClassName: 'selected', className: 'nav-link home' },
                 _react2.default.createElement('i', { className: 'fas fa-home' }),
                 _react2.default.createElement(
                   'span',
@@ -26107,7 +26107,7 @@ var Nav = function (_Component) {
               { className: 'nav-item' },
               _react2.default.createElement(
                 _reactRouterDom.NavLink,
-                { className: 'nav-link', activeClassName: 'selected', to: '/home/messaging' },
+                { className: 'nav-link', activeClassName: 'selected', to: '/messaging' },
                 _react2.default.createElement('i', { className: 'fas fa-comments' }),
                 _react2.default.createElement(
                   'span',
@@ -26121,7 +26121,7 @@ var Nav = function (_Component) {
               { className: 'nav-item' },
               _react2.default.createElement(
                 _reactRouterDom.NavLink,
-                { activeClassName: 'selected', className: 'nav-link', to: '/home/notifications' },
+                { activeClassName: 'selected', className: 'nav-link', to: '/notifications' },
                 _react2.default.createElement('i', { className: 'fas fa-bell' }),
                 _react2.default.createElement(
                   'span',
@@ -26148,17 +26148,17 @@ var Nav = function (_Component) {
                 { className: 'dropdown-menu', 'aria-labelledby': 'navbarDropdown' },
                 _react2.default.createElement(
                   'a',
-                  { className: 'dropdown-item', href: '#' },
+                  { className: 'dropdown-item', href: '/profile' },
                   'Profile'
                 ),
                 _react2.default.createElement(
                   'a',
-                  { className: 'dropdown-item', href: '#' },
+                  { className: 'dropdown-item', href: '/help' },
                   'Help'
                 ),
                 _react2.default.createElement(
                   'a',
-                  { className: 'dropdown-item', href: '#' },
+                  { className: 'dropdown-item', href: '/settings' },
                   'Settings'
                 ),
                 _react2.default.createElement('div', { className: 'dropdown-divider' }),
@@ -26174,7 +26174,7 @@ var Nav = function (_Component) {
               { className: 'nav-item' },
               _react2.default.createElement(
                 _reactRouterDom.NavLink,
-                { activeClassName: 'selected', className: 'nav-link', to: '/home/tours' },
+                { activeClassName: 'selected', className: 'nav-link', to: '/tours' },
                 _react2.default.createElement('i', { className: 'fas fa-globe' }),
                 _react2.default.createElement(
                   'span',
