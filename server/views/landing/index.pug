@@ -142,6 +142,7 @@ block content
           div(class="form-group")
             label(for="password" class="col-form-label") Password
             input(type="password" class="form-control" id="password")
+            small(class="form-text text-muted") Example help text that remains unchanged.
           div(class="form-group")
             label(for="confirmPassword" class="col-form-label") Confirm Password
             input(type="password" class="form-control" id="confirmPassword")
@@ -163,12 +164,13 @@ block content
             label(for="password-login" class="col-form-label") Password
             input(type="password" class="form-control" id="password-login")
         div(class="modal-footer")
-          button(type="button" class="btn btn-primary") Login 
+          button(type="button" class="btn btn-primary " id="login-btn" disabled) Login 
 
 
 
-  script(asynce, src="landing/index.js")
+ 
   script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
   script(defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js")
+  script(async, src="landing/index.js")

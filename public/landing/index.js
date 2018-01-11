@@ -60,22 +60,69 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 128);
+/******/ 	return __webpack_require__(__webpack_require__.s = 140);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 128:
+/***/ 140:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(129);
+__webpack_require__(141);
+
+var log = console.log;
+
+$('#email-login').on('keydown', function () {
+  var email = $('#email-login').val();
+  var password = $('#password-login').val();
+  if (email.length && password.length) {
+    $('#login-btn').prop('disabled', false);
+  } else {
+    $('#login-btn').prop('disabled', true);
+  }
+});
+
+$('#password-login').on('keydown', function () {
+  var email = $('#email-login').val();
+  var password = $('#password-login').val();
+  if (email.length && password.length) {
+    $('#login-btn').prop('disabled', false);
+  } else {
+    $('#login-btn').prop('disabled', true);
+  }
+});
+
+$("#login-btn").click(function () {
+  var email = $("#email-login").val();
+  var password = $("#password-login").val();
+  fetch('http://localhost:3000/api/v1/account/login', {
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    credentials: 'include',
+    body: JSON.stringify({ email: email, password: password })
+  }).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    log('this is the data: ', data);
+    if (data.message === 'Success') {
+      location.reload();
+    } else if (data.message === 'Wrong Password.') {
+      $("#email-login").removeClass('border-danger');
+      $("#password-login").addClass('border-danger');
+    } else {
+      $("#email-login").addClass('border-danger');
+    }
+  }).catch(function (err) {
+    log(err);
+  });
+});
 
 /***/ }),
 
-/***/ 129:
+/***/ 141:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

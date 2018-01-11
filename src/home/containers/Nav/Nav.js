@@ -18,19 +18,19 @@ class Nav extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <NavLink exact to="/home" activeClassName="selected" className="nav-link home">
+              <NavLink exact to="/" activeClassName="selected" className="nav-link home">
                 <i className="fas fa-home"></i>
                 <span className="text">Home</span>
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" activeClassName="selected" to="/home/messaging">
+              <NavLink className="nav-link" activeClassName="selected" to="/messaging">
                 <i className="fas fa-comments"></i>
                 <span className="text">Messages</span>
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink activeClassName="selected" className="nav-link" to="/home/notifications">
+              <NavLink activeClassName="selected" className="nav-link" to="/notifications">
                 <i className="fas fa-bell"></i>
                 <span className="text">Notifications</span>
               </NavLink>
@@ -42,15 +42,15 @@ class Nav extends Component {
                 <span className="text">Profile</span>
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="#">Profile</a>
-                <a className="dropdown-item" href="#">Help</a>
-                <a className="dropdown-item" href="#">Settings</a>
+                <a className="dropdown-item" href="/profile">Profile</a>
+                <a className="dropdown-item" href="/help">Help</a>
+                <a className="dropdown-item" href="/settings">Settings</a>
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="#">Logout</a>
+                <a className="dropdown-item" href="/logout">Logout</a>
               </div>
             </li>
             <li className="nav-item">
-              <NavLink activeClassName="selected" className="nav-link" to="/home/tours">
+              <NavLink activeClassName="selected" className="nav-link" to="/tours">
                 <i className="fas fa-globe"></i>
                 <span className="text">Tours</span>
               </NavLink>

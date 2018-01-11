@@ -8,7 +8,7 @@ exports.get = (req, res) => {
 
 exports.put = (req, res) => { }
 
-exports.deleteaccount = (req, res) => { }
+// exports.deleteaccount = (req, res) => { }
 
 exports.createAccount = (req, res, next) => { 
   var newUser = new User(req.body);
@@ -25,14 +25,11 @@ exports.createAccount = (req, res, next) => {
 
 exports.login = (req, res, next) => {
   if (!req.body.password) {
-    let err = new Error('Password required.')
-    err.status = 400
-    return next(err)
+    return res.status(400).json({ message: 'Password required.'})
   }
   User.findOne({ email: req.body.email }, (err, user) => {
     if (err) {
-      err.status = 500
-      return next(err)
+      return res.status(500)
     }
     if (!user) {
       res.status(401).json({ message: 'User not found.'})
@@ -42,7 +39,7 @@ exports.login = (req, res, next) => {
       } else {
         user.password = undefined
         let token = jwt.sign({ email: user.email, name: user.name, _id: user._id }, 'secret')
-        res.cookie('jwt', `${token}`, { httpOnly: true }).json(user)
+        res.cookie('jwt', token, { expires: new Date(Date.now() + 900000), httpOnly: true}).json({ message: 'Success'})
       }
     }
   })
