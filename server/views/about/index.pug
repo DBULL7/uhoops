@@ -68,11 +68,12 @@ block content
           div(class="form-group")
             label(for="password" class="col-form-label") Password
             input(type="password" class="form-control" id="password")
+            small(class="form-text text-muted") Password must be at least 8 characters long.
           div(class="form-group")
             label(for="confirmPassword" class="col-form-label") Confirm Password
             input(type="password" class="form-control" id="confirmPassword")
         div(class="modal-footer")
-          button(type="button" class="btn btn-primary") Create Account 
+          button(type="button" class="btn btn-primary" id="signup-btn") Create Account 
 
   div(class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
     div(class="modal-dialog modal-dialog-centered " role="document")
