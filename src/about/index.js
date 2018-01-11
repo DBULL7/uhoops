@@ -34,7 +34,7 @@ $("#login-btn").click(function () {
     .then(data => {
       log('this is the data: ', data)
       if (data.message === 'Success') {
-        window.location.href = '/home';
+        window.location.href = '/';
       } else if (data.message === 'Wrong Password.') {
         $("#email-login").removeClass('border-danger')
         $("#password-login").addClass('border-danger')

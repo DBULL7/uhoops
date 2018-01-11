@@ -12,13 +12,17 @@ exports.put = (req, res) => { }
 
 exports.createAccount = (req, res, next) => { 
   var newUser = new User(req.body);
+  if (newUser.password.length < 8) {
+    return res.status(400).json({ message: 'Password Length Too Short.'})
+  }
   newUser.password = bcrypt.hashSync(req.body.password, 10);
   newUser.save((err, user) => {
     if (err) {
       return res.status(400).send({ message: err})
     } else {
       user.password = undefined;
-      return res.json(user);
+      let token = jwt.sign({ email: user.email, name: user.name, _id: user._id }, 'secret')
+      res.cookie('jwt', token, { expires: new Date(Date.now() + 900000), httpOnly: true }).json({ message: 'Success' })
     }
   })
 }

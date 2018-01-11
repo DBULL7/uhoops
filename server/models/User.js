@@ -4,7 +4,7 @@ let bcrypt = require('bcrypt')
 
 
 let userSchema = new Schema({
-      email:    { type: String, unique: true, trim: true, required: true },
+      email: { type: String, unique: true, trim: true, required: true, minlength: 3 },
       password: { type: String, required: true },
       name:     { type: String, trim: true, required: true }, 
       created:  { type: Date, default: Date.now }
