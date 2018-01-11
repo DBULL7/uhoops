@@ -46,7 +46,7 @@ class Nav extends Component {
                 <a className="dropdown-item" href="#">Help</a>
                 <a className="dropdown-item" href="#">Settings</a>
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="#">Logout</a>
+                <a className="dropdown-item" href="/logout">Logout</a>
               </div>
             </li>
             <li className="nav-item">
