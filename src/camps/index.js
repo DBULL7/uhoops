@@ -24,7 +24,7 @@ $('#password-login').on('keydown', () => {
 $("#login-btn").click(function () {
   let email = $("#email-login").val()
   let password = $("#password-login").val()
-  fetch('http://localhost:3000/api/v1/account/login', {
+  fetch('/api/v1/account/login', {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
     credentials: 'include',
