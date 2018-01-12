@@ -32,23 +32,23 @@ $("#login-btn").click(function () {
   })
     .then(res => res.json())
     .then(data => {
-      log('this is the data: ', data)
       if (data.message === 'Success') {
         location.reload()
-      } else if (data.message === 'Wrong Password.') {
-        $("#email-login").removeClass('border-danger')
-        $("#password-login").addClass('border-danger')
-      } else {
-        $("#email-login").addClass('border-danger')
+      } else if (data.message === 'Email Taken.') {
+        $('#email').removeClass('border-success')
+        $("#email").addClass('bg-danger')
       }
+    }).catch((err) => {
+      log(err)
     }).catch((err) => {
       log(err)
     })
 })
 
-$('#name, #email, #password, #confirmPassword').on('keypress, blur', () => {
+$('#name, #email, #password, #confirmPassword').on('keypress keyup keydown focus blur', () => {
   nameLength()
   emailLength()
+  // compare()
   let name = $('#name').val()
   let email = $('#email').val()
   if (name.length && email.length > 3 && compare()) {
@@ -63,6 +63,8 @@ let nameLength = () => {
   let name = $('#name').val()
   if (name.length) {
     $('#name').addClass('border-success')
+  } else {
+    $('#name').removeClass('border-success')
   }
 }
 
@@ -70,23 +72,40 @@ let emailLength = () => {
   let email = $('#email').val()
   if (email.length > 3) {
     $('#email').addClass('border-success')
+  } else {
+    $('#email').removeClass('border-success')
   }
 }
+
+$('#password').on('keypress keyup keydown focus blur', () => {
+  let password = $('#password').val()
+  // let confirmPassword = $('#confirmPassword').val() 
+  if (password.length < 8 && password.length > 1) {
+    $('small').removeClass('text-muted')
+    $('small').addClass('text-warning')
+  } else if (password.length > 7) {
+    $('small').removeClass('text-warning')
+    $('small').addClass('text-success')
+  }
+})
 
 let compare = () => {
   let password = $('#password').val()
   let confirmPassword = $('#confirmPassword').val()
-  if (!password.length || !confirmPassword.length) return false
+  if (password.length < 8 || confirmPassword.length < 8) {
+    $('#confirmPassword, #password').removeClass('border-success')
+    return false
+  }
   if (password !== confirmPassword) {
-    $('#confirmPassword').addClass('border-danger')
+    $('#confirmPassword, #password').addClass('border-danger')
     return false
   } else {
-    $('#confirmPassword').removeClass('border-danger')
+    $('#confirmPassword, #password').removeClass('border-danger')
     $('#confirmPassword, #password').addClass('border-success')
     return true
   }
-
 }
+
 
 $("#signup-btn").click(function () {
   let email = $("#email").val()
@@ -100,14 +119,11 @@ $("#signup-btn").click(function () {
   })
     .then(res => res.json())
     .then(data => {
-      log('this is the data: ', data)
       if (data.message === 'Success') {
         window.location.href = '/tours'
-      } else if (data.message === 'Wrong Password.') {
-        $("#email-login").removeClass('border-danger')
-        $("#password-login").addClass('border-danger')
-      } else {
-        $("#email-login").addClass('border-danger')
+      } else if (data.message === 'Email Taken.') {
+        $('#email').removeClass('border-success')
+        $("#email").addClass('bg-danger')
       }
     }).catch((err) => {
       log(err)

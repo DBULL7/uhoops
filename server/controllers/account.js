@@ -15,10 +15,12 @@ exports.createAccount = (req, res, next) => {
   if (newUser.password.length < 8) {
     return res.status(400).json({ message: 'Password Length Too Short.'})
   }
+  if (!newUser.name.length) return res.json({ message: 'Name Required.'})
+  if (!newUser.email.length) return res.json({ message: 'Email Required.'})
   newUser.password = bcrypt.hashSync(req.body.password, 10);
   newUser.save((err, user) => {
     if (err) {
-      return res.status(400).send({ message: err})
+      return res.status(400).send({ message: 'Email Taken.'})
     } else {
       user.password = undefined;
       let token = jwt.sign({ email: user.email, name: user.name, _id: user._id }, 'secret')
