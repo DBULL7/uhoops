@@ -1,0 +1,28 @@
+html, body {
+  height: 100vh;
+}
+
+body {
+  /* padding-top: 58px; */
+  background: #343a40!important;
+}
+
+nav {
+  /* background: #343a40; */
+  z-index: 2;
+}
+
+.nav-link:hover {
+  color: #f31a0a!important;
+}
+
+.nav-link {
+  color: white!important;
+  margin-right: 10px;
+}
+
+.nav-logo {
+  margin-right: 10px;
+  height: 100px;
+  width: 300px;
+}

@@ -22,7 +22,6 @@ r.get('/tours', tours.index)
 
 const home = require('./controllers/home')
 r.get('/messaging', checkAuth, home.messaging)
-r.get('/notifications', checkAuth, home.notifications)
 r.get('/tours', checkAuth, home.tours)
 r.get('/profile', checkAuth, home.profile)
 
@@ -34,3 +33,18 @@ r.get('/logout', (req, res) => {
   res.clearCookie('jwt')
   res.redirect('/')
 })
+
+const admin = require('./controllers/admin')
+r.get('/admin', admin.index)
+
+const pro_combine = require('./controllers/pro_combine')
+r.get('/pro_combine', pro_combine.index)
+
+const college_prep = require('./controllers/college_prep')
+r.get('/college_prep', college_prep.index)
+
+const curriculum_k8 = require('./controllers/curriculum_k8')
+r.get('/curriculum_k8', curriculum_k8.index)
+
+const development_league = require('./controllers/development_league')
+r.get('/development_league', development_league.index)

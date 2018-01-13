@@ -8,18 +8,24 @@ append head
 block content 
   nav(class="navbar navbar-expand-lg navbar-dark")
     a(class="navbar-brand" href="/") 
-      img(src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top nav-logo")
-      | U-Hoop
+      img(src="/assets/test-logo.png" width="100" height="30" class="d-inline-block align-top nav-logo")
     button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
       span(class="navbar-toggler-icon")
     div(class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent")
       ul(class="navbar-nav")
+        li(class="nav-item")
+          a(class="nav-link" href="/") Home
+        li(class="nav-item")
+          a(class="nav-link" href="/about") About
         li(class="nav-item dropdown")
           a(class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Services
           div(class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink")
             a(class="dropdown-item" href="/tours") Tours 
             a(class="dropdown-item" href="/camps") Training Camps
-            a(class="dropdown-item" href="/courses") Online Courses
+            a(class="dropdown-item" href="/pro-combine") Pro Combine
+            a(class="dropdown-item" href="/development-league") Development League
+            a(class="dropdown-item" href="/college-prep") College Prep
+            a(class="dropdown-item" href="/curriculum-k8") Curriculum K-8
         li.nav-item.nav-btn
           button(class="btn btn-outline-light" data-toggle="modal" data-target="#login") Login
         li.nav-item.nav-btn
@@ -27,6 +33,22 @@ block content
   div(id="hero-img" class="text-center container bg-tint")
     h2.text-white.tag Changing the World Through Basketball
     h4.text-white.sub-tag A platform for improving, connecting, and discovering career opportunities around the world
+  .container.section 
+    .row.text-center.justify-content-center
+      h2.text-white.section-title About Us
+      .container.justify-content-center
+        .row.justify-content-center
+          img(src="/assets/divider-xx-red.png" class="divider")
+        .container
+          .row.justify-content-center
+            p.text-secondary.about-text.text-center
+              | U-Hoops was Established 2013. Before, During, and Afterward Sports 
+            p.text-secondary.about-text.text-center 
+              | U-Hoops network allow players to be scouted and provides value-add content and news to the basketball community provides information on camps, supplemental combines, tours, rankings and general opportunities that are seldom publicized,
+            p.text-secondary.about-text.text-center
+              | U-Hoops platform allow players with potential to find and take advantage of opportunities world wide at there on will. In addition, much as LinkedIn provides a profile format that helps business people display their accomplishments and resume in an optimized format, U-Hoops provides a specially designed profile format that allows players to fully display their sports portfolio.
+            p.text-secondary.about-text.text-center
+              | For scouts, teams, agents and those professionals’ in-andaround sports, U-Hoops aggregates data to provide readily available insights that are currently difficult to attain. Examples are sport-specific personality tests, coaches’ notes, player video, and coach rankings with skill breakdowns, performance alerts, stat tracking and other relevant data. finally, U-Hoops can act as a craigslist for sporting position recruitment which is especially relevant for foreign and semi-professional teams and those looking to break into them on the administrative side.   
   .container.section
     .row
       .col-md-7

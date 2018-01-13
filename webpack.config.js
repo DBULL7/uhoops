@@ -4,6 +4,11 @@ const extractSass = new ExtractTextPlugin('[name]/main.css')
 
 module.exports = {
   entry: {
+		development_league: './src/development_league',
+		curriculum_k8: './src/curriculum_k8',
+		college_prep: './src/college_prep',
+		pro_combine: './src/pro_combine',
+		admin: './src/admin',
 		camps: './src/camps',
 		home: './src/home',
 		tours: './src/tours',
