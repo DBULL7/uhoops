@@ -3,6 +3,18 @@ import React, { Component } from 'react'
 class Home extends Component {
   componentDidMount() {
     document.title = 'U-Hoop'
+    let oldscript = document.getElementById('twitter')
+    if (oldscript) {
+      oldscript.parentNode.removeChild(oldscript);
+    }
+    const script = document.createElement("script");
+
+    script.src = "https://platform.twitter.com/widgets.js";
+    script.charset = 'utf-8'
+    script.async = true;
+    script.id = 'twitter'
+
+    document.body.appendChild(script);
   }
 
   render() {

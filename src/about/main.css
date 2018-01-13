@@ -23,7 +23,7 @@ nav {
 .nav-logo {
   margin-right: 10px;
   height: 100px;
-  width: 200px;
+  width: 300px;
 }
 
 #hero-img {
@@ -121,6 +121,9 @@ footer {
   .nav-btn {
     margin-right: 10px;
   }
+  .navbar-brand {
+    margin-left: 50px;
+  }
   #hero-img {
     margin-top: -130px;
   }
@@ -138,7 +141,7 @@ footer {
   }
   .nav-logo {
     height: 50px;
-    width: 100px;
+    width: 150px;
 
   }
 }
