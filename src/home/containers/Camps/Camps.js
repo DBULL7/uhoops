@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './Notifications.css'
+import './Camps.css'
 
-class Notifications extends Component {
+class Camps extends Component {
   constructor(props) {
     super(props)
     this.state = {}
@@ -9,9 +9,9 @@ class Notifications extends Component {
   
   render() {
     return (
-      <div>Hello Notifications</div>
+      <div>Hello Camps</div>
     )
   }
 }
 
-export default Notifications
+export default Camps

@@ -22,7 +22,6 @@ r.get('/tours', tours.index)
 
 const home = require('./controllers/home')
 r.get('/messaging', checkAuth, home.messaging)
-r.get('/notifications', checkAuth, home.notifications)
 r.get('/tours', checkAuth, home.tours)
 r.get('/profile', checkAuth, home.profile)
 
@@ -34,3 +33,6 @@ r.get('/logout', (req, res) => {
   res.clearCookie('jwt')
   res.redirect('/')
 })
+
+const admin = require('./controllers/admin')
+r.get('/admin', admin.index)

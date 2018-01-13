@@ -7,7 +7,8 @@ body {
 }
 
 nav {
-  background: #343a40;
+  /* background: transparent; */
+  z-index: 2;
 }
 
 .nav-link:hover {
@@ -21,9 +22,12 @@ nav {
 
 .nav-logo {
   margin-right: 10px;
+  height: 100px;
+  width: 200px;
 }
 
 #hero-img {
+  /* margin-top: -127px; */
   background-image: url("/assets/about-background.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -117,9 +121,33 @@ footer {
   .nav-btn {
     margin-right: 10px;
   }
+  #hero-img {
+    margin-top: -130px;
+  }
+}
+
+
+
+@media (max-width: 992px) {
+  nav {
+    background: #343a40;
+  }
+	.nav-btn {
+		margin-right: 0;
+		margin-top: 5px;
+  }
+  .nav-logo {
+    height: 50px;
+    width: 100px;
+
+  }
 }
 
 @media (max-width: 576px) {
+  .nav-logo {
+    height: 30px;
+    width: 90px;
+  }
 	.story-text {
 		line-height: 1.4;
 	}
@@ -138,13 +166,6 @@ footer {
 
 	footer {
 		font-size: 10px;
-	}
-}
-
-@media (max-width: 992px) {
-	.nav-btn {
-		margin-right: 0;
-		margin-top: 5px;
 	}
 }
 
