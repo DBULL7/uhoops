@@ -1,5 +1,7 @@
 extends ../layout 
 append head
+  title Development League | U-Hoop
+  link(rel="shortcut icon" type="image/png" href="./assets/logo.png")
   link(rel="stylesheet" href="development_league/main.css")
   link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous")
   
@@ -28,6 +30,89 @@ block content
           button(class="btn btn-outline-light" data-toggle="modal" data-target="#login") Login
         li.nav-item.nav-btn
           button(class="btn btn-outline-light" data-toggle="modal" data-target="#register") Sign up
+  div(id="hero-img" class="text-center container bg-tint")
+    .row.justify-content-center
+      h2.text-white.tag Philippines Development League 
+
+
+  .container.section
+    h2.text-white.section-title U-Hoops Philippines Development League - $600
+    p.text-secondary.section-text U-hoops Philippines League is to give each player a platform and exposure to allow local talent the opportunity to be scouted and competed against Top America talent in Cebu City which is the grassroots of basketball, also connect Import players to oversea opportunity to experiences basketball outside the states. U-Hoops Provide players an opposition to seek opportunities by connecting and playing on commercial teams which allowing players to connect directly to the sources.
+    p.text-secondary.section-text Mission Statement: U-Hoops Philippines League is Integrity, spiritually growth, and filled Honest League. U-Hoops League is focus on growth of the players character and creating opportunity to Cebu players and International attractions. We strive to conduct basketball players to agents, scouts and coaches and other professional players and we allow agents, scouts and coaches to find better player who might get overlooked elsewhere.
+    p.text-secondary.section-text U-Hoops Philippines League Core Values: U-Hoops Philippines League Core Values: Integrity, Character, Accountability, and Spiritually Growth
+    p.text-secondary Included:
+    ul.text-secondary
+      li 2-Months Stay In house 
+      li Guarantee Commerical Contract
+      li Yoga Once A Week
+      li 2 Practice Per Day with Professional Coaches
+      li 16 Games, Commerical League & PBA Teams
+      li Game Film for all games and Stats, posted on the U-Hoops youtube channel
+      li U-Hoops T-Shirt, U-hoops Jersey, 
+      li Personal Trainer 
+      li Custom Workout Plan 
+      li Introduction to PBA Coaches, Agents, Scouts and GM's
+      li Introduction to Philippines rules, systems, concepts and tactics
+      li Education about the Asis basketball market, agents, and contracts
+      li Food Allowaces
+    p.text-secondary Not Included:
+    ul.text-secondary
+      li Flight (driver available upon request) U-hoops Have discount with Airlines * Cheap Flights ( 
+        a(href="https://www.skypicker.com" class="text-white" target="_blank") www.skypicker.com
+        |  )
+      li Travelers insurance + Personal 
+ 
+  .container.text-center.divider.sm-container
+    a(class="link" href="https://www.facebook.com/UHoopsDotCom/" target="_blank")
+      i(class="fab fa-facebook fa-3x icon sm")
+      a(class="link" href="https://twitter.com/UHOOPSDOTCOM" target="_blank")
+        i(class="fab fa-twitter-square fa-3x icon sm")
+  footer.container-fluid
+    .row.text-secondary.copyright-mobile
+        p.space &copy; 2018
+        p.side-bars.space U-HOOPS L.L.C
+        p.left-space All Rights Reserved
+
+  div(class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+    div(class="modal-dialog modal-dialog-centered " role="document")
+      div(class="modal-content")
+        div(class="modal-header bg-dark")
+          h5(class="modal-title text-white" id="exampleModalLongTitle") Register
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(class="text-white" aria-hidden="true") &times;
+        div(class="modal-body") 
+          div(class="form-group")
+            label(for="name" class="col-form-label") Name
+            input(type="text" class="form-control" id="name")
+          div(class="form-group")
+            label(for="email" clas="col-form-label") Email
+            input(type="email" class="form-control" id="email")
+          div(class="form-group")
+            label(for="password" class="col-form-label") Password
+            input(type="password" class="form-control" id="password")
+            small(class="form-text text-muted") Password must be at least 8 characters long.
+          div(class="form-group")
+            label(for="confirmPassword" class="col-form-label") Confirm Password
+            input(type="password" class="form-control" id="confirmPassword")
+        div(class="modal-footer")
+          button(type="button" class="btn btn-primary" id="signup-btn") Create Account 
+
+  div(class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+    div(class="modal-dialog modal-dialog-centered " role="document")
+      div(class="modal-content")
+        div(class="modal-header bg-dark")
+          h5(class="modal-title text-white" id="exampleModalLongTitle") Login
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(class="text-white" aria-hidden="true") &times;
+        div(class="modal-body") 
+          div(class="form-group")
+            label(for="email-login" clas="col-form-label") Email
+            input(type="email" class="form-control" id="email-login")
+          div(class="form-group")
+            label(for="password-login" class="col-form-label") Password
+            input(type="password" class="form-control" id="password-login")
+        div(class="modal-footer")
+          button(type="button" class="btn btn-primary" id="login-btn" disabled) Login 
   script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")

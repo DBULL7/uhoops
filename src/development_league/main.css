@@ -4,7 +4,7 @@ html, body {
 
 body {
   /* padding-top: 58px; */
-  background: #343a40!important;
+  background: #26292b!important;
 }
 
 nav {
@@ -25,4 +25,145 @@ nav {
   margin-right: 10px;
   height: 100px;
   width: 300px;
+}
+
+.text-secondary > li {
+  margin-bottom: 10px;
+}
+
+#hero-img {
+  /* margin-top: -127px; */
+  background-image: url("/assets/dev_league_bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  max-width: 100%;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.icon {
+  color: #ee6058;
+}
+
+.tag {
+  font-size: 110px;
+  width: 60%;
+}
+
+.section {
+  padding: 50px;
+}
+
+.section-title {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.section-text {
+  line-height: 1.8;
+}
+
+
+.divider {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.bg-tint {
+	background-color: rgba(146, 143, 139, 0.65); 
+  background-blend-mode: multiply;
+}
+
+.link {
+  margin-left: 10px;
+  /* padding: 2px;
+  background: white; */
+}
+
+footer {
+  background: #191c1e;
+  display: flex;
+  padding-top: 15px;
+  font-size: 14px;
+}
+
+.side-bars {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+.space {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.left-space {
+  padding-left: 15px;
+}
+
+.sm:hover {
+	color: white;
+}
+
+@media (min-width: 992px) {
+  nav {
+    background: transparent;
+  }
+  .nav-btn {
+    margin-right: 10px;
+  }
+  .navbar-brand {
+    margin-left: 50px;
+  }
+   #hero-img {
+    margin-top: -130px;
+  }
+}
+
+@media (max-width: 992px) {
+  .tag {
+    width: 90%;
+  }
+  #hero-img {
+    height: 90vh;
+  }
+  .nav-btn {
+		margin-right: 0;
+		margin-top: 5px;
+  }
+  .nav-logo {
+    height: 50px;
+    width: 150px;
+  }
+}
+
+@media (max-width: 776px) {
+  .tag {
+    width: 80%;
+    font-size: 90px;
+  }
+}
+
+@media (max-width: 576px) {
+  .tag {
+    width: 100%;
+    font-size: 70px;
+  }
+  footer {
+    font-size: 11px;
+  }
+  .copyright-mobile {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .tag {
+    font-size: 50px;
+  }
 }
