@@ -26,3 +26,151 @@ nav {
   height: 100px;
   width: 300px;
 }
+
+#hero-img {
+  /* margin-top: -127px; */
+  background-image: url("/assets/ncaa.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  max-width: 100%;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.divider {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.bg-tint {
+	background-color: rgba(146, 143, 139, 0.65); 
+  background-blend-mode: multiply;
+}
+
+.tag {
+  font-size: 110px;
+}
+
+.sub-tag {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.section {
+  padding: 100px;
+  padding-bottom: 50px;
+}
+
+.section-title {
+	font-size: 40px;
+}
+
+.section-content {
+  line-height: 1.8;
+}
+
+footer {
+  background: #191c1e;
+  display: flex;
+  padding-top: 15px;
+  font-size: 14px;
+}
+
+.side-bars {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+.space {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.left-space {
+  padding-left: 15px;
+}
+
+.sm:hover {
+	color: white;
+}
+
+.modal-content {
+	border: none!important;
+}
+
+.icon {
+  color: #ee6058;
+}
+
+.link {
+	margin-left: 15px;
+
+}
+
+.sm-container {
+	padding: 50px;
+}
+
+@media (min-width: 992px) {
+  .nav-btn {
+    margin-right: 10px;
+  }
+  .navbar-brand {
+    margin-left: 50px;
+  }
+  #hero-img {
+    margin-top: -130px;
+  }
+}
+
+@media (max-width: 992px) {
+  nav {
+    background: #343a40;
+  }
+	.nav-btn {
+		margin-right: 0;
+		margin-top: 5px;
+  }
+  .nav-logo {
+    height: 50px;
+    width: 150px;
+
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-logo {
+    height: 30px;
+    width: 90px;
+  }
+	.story-text {
+		line-height: 1.4;
+	}
+
+	.center-mobile {
+		text-align: center;
+	}
+
+	.center-img-mobile {
+		display: block;
+    margin-left: auto;
+		margin-right: auto;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+
+	footer {
+		font-size: 10px;
+  }
+  .tag {
+    font-size: 70px;
+  }
+  #hero-img {
+    height: 91vh;
+  }
+}

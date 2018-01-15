@@ -1,5 +1,6 @@
 extends ../layout 
 append head
+  title College Prep | U-Hoop
   link(rel="stylesheet" href="college_prep/main.css")
   link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous")
   
@@ -28,6 +29,79 @@ block content
           button(class="btn btn-outline-light" data-toggle="modal" data-target="#login") Login
         li.nav-item.nav-btn
           button(class="btn btn-outline-light" data-toggle="modal" data-target="#register") Sign up
+  
+  div(id="hero-img" class="text-center container bg-tint")
+    h2.text-white.tag College Prep
+
+
+  .container.section
+    h2.text-white.mb-3 U-Hoops College Prep - Grade 9th-12th - $500  
+    p.text-secondary.section-content U-Hoops College Prep is our new services which we are provide information to our parents and student-athletes. The goal for U-Hoops college prep is to provide kids opportunity who have been over look during their high school career and looking for a resource. U-Hoops college prep is platform to showcase their talent within our network giving athletes like you a chance to learn about the opportunities to play college sports and connect to U-Hoops network. U-Hoops will consist in offer a variety of things for the student-athlete, to learn and experiences. U-Hoops College Prep is located in Kansas City, Mo which is the centralized location for Student-Athletes in the Midwest, which give kids access to a lot of mid-major schools and NAIA opportunities for the student-athlete which the NAIA headquarters is located in Kansas City, MO. The NAIA are connect with many NAIA coaches locally and help students- athletes and your parents discover the academic programs and $500 million in scholarships offered by the more than 250 NAIA colleges and universities.
+    ul.text-secondary 
+      li Access to U-Hoops Showcase + Coaches, Scouts in Attending Summer Event
+      li Summer Internship Programs w/ U-Hoops
+      li Access to custom Meal + Fit Plan
+      li Access to NCAA, MIAA, NAIA, and NJCAA for potential scholarship offers
+      li Access to International Scholarship offers to China-Philippines-London
+      li Access to Shot tracker Monitor Shooting Endorsed By: Klay Thompson Golden State Warriors
+      li Access to Mentorship by Pro Athletes- NBA+Oversea Pros
+      li U-Hoops 101 NCAA Rules for Student + Parents
+      li Access to U-Hoops College Summer Tours Philippines+ China+London
+      li Free U-Hoops Profile
+      li Access to ACT +SAT
+
+  .container.text-center.divider.sm-container
+    a(class="link" href="https://www.facebook.com/UHoopsDotCom/" target="_blank")
+      i(class="fab fa-facebook fa-3x icon sm")
+      a(class="link" href="https://twitter.com/UHOOPSDOTCOM" target="_blank")
+        i(class="fab fa-twitter-square fa-3x icon sm")
+  footer.container-fluid
+    .row.text-secondary
+        p.space &copy; 2018
+        p.side-bars.space U-HOOPS L.L.C
+        p.left-space All Rights Reserved
+
+  div(class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+    div(class="modal-dialog modal-dialog-centered " role="document")
+      div(class="modal-content")
+        div(class="modal-header bg-dark")
+          h5(class="modal-title text-white" id="exampleModalLongTitle") Register
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(class="text-white" aria-hidden="true") &times;
+        div(class="modal-body") 
+          div(class="form-group")
+            label(for="name" class="col-form-label") Name
+            input(type="text" class="form-control" id="name")
+          div(class="form-group")
+            label(for="email" clas="col-form-label") Email
+            input(type="email" class="form-control" id="email")
+          div(class="form-group")
+            label(for="password" class="col-form-label") Password
+            input(type="password" class="form-control" id="password")
+            small(class="form-text text-muted") Password must be at least 8 characters long.
+          div(class="form-group")
+            label(for="confirmPassword" class="col-form-label") Confirm Password
+            input(type="password" class="form-control" id="confirmPassword")
+        div(class="modal-footer")
+          button(type="button" class="btn btn-primary" id="signup-btn") Create Account 
+
+  div(class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+    div(class="modal-dialog modal-dialog-centered " role="document")
+      div(class="modal-content")
+        div(class="modal-header bg-dark")
+          h5(class="modal-title text-white" id="exampleModalLongTitle") Login
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(class="text-white" aria-hidden="true") &times;
+        div(class="modal-body") 
+          div(class="form-group")
+            label(for="email-login" clas="col-form-label") Email
+            input(type="email" class="form-control" id="email-login")
+          div(class="form-group")
+            label(for="password-login" class="col-form-label") Password
+            input(type="password" class="form-control" id="password-login")
+        div(class="modal-footer")
+          button(type="button" class="btn btn-primary" id="login-btn" disabled) Login 
+
   script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
