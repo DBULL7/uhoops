@@ -7,7 +7,8 @@ body {
 }
 
 nav {
-  background: #343a40;
+  z-index: 2;
+  /* background: #343a40; */
 }
 
 .nav-link:hover {
@@ -21,6 +22,8 @@ nav {
 
 .nav-logo {
   margin-right: 10px;
+  height: 100px;
+  width: 300px;
 }
 
 #hero-img {
@@ -42,7 +45,7 @@ nav {
   background-blend-mode: multiply;
 }
 .tag {
-  font-size: 60px;
+  font-size: 110px;
 }
 
 .section {
@@ -113,21 +116,69 @@ footer {
   .nav-btn {
     margin-right: 10px;
   }
+  .navbar-brand {
+    margin-left: 50px;
+  }
+  #hero-img {
+    margin-top: -130px;
+  }
+}
+
+@media (min-width: 992px) {
+  .nav-btn {
+    margin-right: 10px;
+  }
+  .navbar-brand {
+    margin-left: 50px;
+  }
+  #hero-img {
+    margin-top: -130px;
+  }
 }
 
 @media (max-width: 992px) {
+  nav {
+    background: #343a40;
+  }
 	.nav-btn {
 		margin-right: 0;
 		margin-top: 5px;
-	}
+  }
+  .nav-logo {
+    height: 50px;
+    width: 150px;
+
+  }
 }
 
 @media (max-width: 576px) {
-  .about-camps-container {
-    width: 80%!important;
+  .nav-logo {
+    height: 30px;
+    width: 90px;
   }
+	.story-text {
+		line-height: 1.4;
+	}
 
-  .about-camps {
-    font-size: 14px;
+	.center-mobile {
+		text-align: center;
+	}
+
+	.center-img-mobile {
+		display: block;
+    margin-left: auto;
+		margin-right: auto;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+
+	footer {
+		font-size: 10px;
+  }
+  .tag {
+    font-size: 70px;
+  }
+  #hero-img {
+    height: 91vh;
   }
 }

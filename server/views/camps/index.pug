@@ -5,56 +5,38 @@ append head
   link(rel="stylesheet" href="camps/main.css")
   link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous")
 block content 
-  nav(class="navbar navbar-expand-lg navbar-dark bg-dark")
+  nav(class="navbar navbar-expand-lg navbar-dark")
     a(class="navbar-brand" href="/") 
-      img(src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top nav-logo")
-      | U-Hoop
+      img(src="/assets/test-logo.png" width="100" height="30" class="d-inline-block align-top nav-logo")
     button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
       span(class="navbar-toggler-icon")
     div(class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent")
       ul(class="navbar-nav")
+        li(class="nav-item")
+          a(class="nav-link" href="/") Home
+        li(class="nav-item")
+          a(class="nav-link" href="/about") About
         li(class="nav-item dropdown")
           a(class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Services
           div(class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink")
             a(class="dropdown-item" href="/tours") Tours 
             a(class="dropdown-item" href="/camps") Training Camps
-            a(class="dropdown-item" href="/courses") Online Courses
+            a(class="dropdown-item" href="/pro_combine") Pro Combine
+            a(class="dropdown-item" href="/development_league") Development League
+            a(class="dropdown-item" href="/college_prep") College Prep
+            a(class="dropdown-item" href="/curriculum_k8") Curriculum K-8
         li.nav-item.nav-btn
           button(class="btn btn-outline-light" data-toggle="modal" data-target="#login") Login
         li.nav-item.nav-btn
-          button(class="btn btn-outline-light" data-toggle="modal" data-target="#register") Sign up 
+          button(class="btn btn-outline-light" data-toggle="modal" data-target="#register") Sign up
 
   div(id="hero-img" class="text-center container bg-tint")
     h2.text-white.tag Camps
 
   .container.section
-    h2.section-title.text-white.text-center 2018 Camps 
-    .row.justify-content-center
-      img(src="/assets/divider-xx-red.png" class="divider")
-    .container.text-secondary.text-center.about-camps
-      p Kids Camp Mar  9 Kansas City, MO
-      p Kids Camp June 8-9 Kansas City, MO
-      p Kids Camp July 27-28 Memphis, TN
-      p Pro Camp Tour Draft  June 29-30 (College SR ONLY)
-      p Additional Camps TBA 
-
-  .container.section
-    h2.section-title.text-white.text-center About Camps
-    .row.justify-content-center
-      img(src="/assets/divider-xx-red.png" class="divider") 
-    .row.text-secondary.justify-content-center.text-center
-      .row.about-camps-container 
-        p.about-camps Campers will experience various drills, specializing in the fundamental skills of basketball. Individual groups will be small to ensure that each camper gets maximum instruction from our experts. We focus on small groups to better engage campers and help with development in the fundamental of basketball and life skills. We pride ourselves on giving campers techniques to improve their basketball abilities, as well as character building, and preparation for college.
-  .container.section
-    h2.section-title.text-white.text-center Rates
-    .row.justify-content-center
-      img(src="/assets/divider-xx-red.png" class="divider") 
-    .container.text-secondary.text-center.about-camps
-      p Group Rate for 10: $425
-      p Team Rate: $350 
-      p 2 Camp Day: $150
-      p 1 Camp Day: $80
-      p Kids camp: $200 (Early Bird Special $150)
+    h2.text-white.mb-5 U-Hoops Camps, Academy & AAU U-Hoops
+    p.text-secondary.mb-5 U-Hoops Kids Camps - $225
+    p.text-secondary U-Hoops Camps, Academy & AAU-U-Hoops Vision is to Inspire, Connect, and Empower athletes to live out their dreams to the best of their ability. We do this by creating the best direct connections and opportunities for the player through our network and our affiliates each day, the campers will experience various stationsnal drills, specializing in fundamental skills of basketball. Individual groups will be small to ensure that each camper gets maximum instruction from our experts. U-Hoops focus on small group to better engage the kids and help with development in the fundamental of basketball and life skills,how will your kid benefit long-term and short-term though U-hoops. U-Hoops pride ourselves on giving the kids and our U-hoops Campers the quality life skills, character building, basketball connection , and preparation for college.
 
 
   .container.text-center.divider.sm-container
