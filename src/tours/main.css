@@ -48,16 +48,17 @@ nav {
 }
 
 .tag {
-  font-size: 70px;
+  font-size: 110px;
 }
 
 .sub-tag {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  font-size: 20px;
 }
 
 .section {
-	padding: 100px;
+	padding-top: 50px;
 }
 
 .divider {
@@ -131,7 +132,10 @@ footer {
   }
 	.nav-btn {
 		margin-top: 5px;
-	}
+  }
+  .tag {
+    font-size: 70px;
+  }
 }
 
 @media (max-width: 576px) {
