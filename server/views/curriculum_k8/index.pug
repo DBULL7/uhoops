@@ -1,5 +1,6 @@
 extends ../layout 
 append head
+  title K - 8 Curriculum 
   link(rel="stylesheet" href="curriculum_k8/main.css")
   link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous")
   
@@ -28,6 +29,68 @@ block content
           button(class="btn btn-outline-light" data-toggle="modal" data-target="#login") Login
         li.nav-item.nav-btn
           button(class="btn btn-outline-light" data-toggle="modal" data-target="#register") Sign up
+
+  div(id="hero-img" class="text-center container bg-tint")
+    h2.text-white.tag K - 8 Curriculum 
+
+  .container.section
+    h2.text-white.mb-3 U-Hoops College Prep - Grade 9th-12th - $500  
+    p.text-secondary.section-content The Purpose of this U-Hoops K-8 Before, During & After Sports curriculum is to inspire kids from all over the world fun learning in developing the proper way to developing basketball skills, alone with career path and teaching kids how to persure entrepreneurship while playing sports and going back to the basic of youth fundamental. U-Hoops will focus fundamentals of the game boys & girls developing proper skills training. U-Hoops Curriculum will feature a series of basic drills from week to week until each curriculum is completed, each course will be 4 weeks and will be measure by a point system to show progress for each kid developing. 
+
+  .container.text-center.divider.sm-container
+    a(class="link" href="https://www.facebook.com/UHoopsDotCom/" target="_blank")
+      i(class="fab fa-facebook fa-3x icon sm")
+      a(class="link" href="https://twitter.com/UHOOPSDOTCOM" target="_blank")
+        i(class="fab fa-twitter-square fa-3x icon sm")
+  footer.container-fluid
+    .row.text-secondary
+        p.space &copy; 2018
+        p.side-bars.space U-HOOPS L.L.C
+        p.left-space All Rights Reserved
+
+
+  div(class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+    div(class="modal-dialog modal-dialog-centered " role="document")
+      div(class="modal-content")
+        div(class="modal-header bg-dark")
+          h5(class="modal-title text-white" id="exampleModalLongTitle") Register
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(class="text-white" aria-hidden="true") &times;
+        div(class="modal-body") 
+          div(class="form-group")
+            label(for="name" class="col-form-label") Name
+            input(type="text" class="form-control" id="name")
+          div(class="form-group")
+            label(for="email" clas="col-form-label") Email
+            input(type="email" class="form-control" id="email")
+          div(class="form-group")
+            label(for="password" class="col-form-label") Password
+            input(type="password" class="form-control" id="password")
+            small(class="form-text text-muted") Password must be at least 8 characters long.
+          div(class="form-group")
+            label(for="confirmPassword" class="col-form-label") Confirm Password
+            input(type="password" class="form-control" id="confirmPassword")
+        div(class="modal-footer")
+          button(type="button" class="btn btn-primary" id="signup-btn") Create Account 
+
+  div(class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+    div(class="modal-dialog modal-dialog-centered " role="document")
+      div(class="modal-content")
+        div(class="modal-header bg-dark")
+          h5(class="modal-title text-white" id="exampleModalLongTitle") Login
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(class="text-white" aria-hidden="true") &times;
+        div(class="modal-body") 
+          div(class="form-group")
+            label(for="email-login" clas="col-form-label") Email
+            input(type="email" class="form-control" id="email-login")
+          div(class="form-group")
+            label(for="password-login" class="col-form-label") Password
+            input(type="password" class="form-control" id="password-login")
+        div(class="modal-footer")
+          button(type="button" class="btn btn-primary" id="login-btn" disabled) Login 
+
+
   script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
