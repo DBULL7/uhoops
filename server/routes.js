@@ -48,3 +48,9 @@ r.get('/curriculum_k8', curriculum_k8.index)
 
 const development_league = require('./controllers/development_league')
 r.get('/development_league', development_league.index)
+
+const post = require('./controllers/post')
+r.get('/api/v1/post', post.get)
+// r.put('/api/v1/post/:id', post.put)
+// r.delete('/api/v1/post/:id', post.deletepost)
+r.post('/api/v1/post', post.post)
