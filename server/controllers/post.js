@@ -3,13 +3,15 @@ let jwt = require('jsonwebtoken')
 let User = require("../models/User")
 
 exports.get = (req, res, next) => { 
-  Post.find({}, (err, posts) => {
+  Post.find().populate('postedBy', 'name').exec((err, results) => {
     if (err) {
       return next(err)
     } else {
-      res.json(posts)
+      res.json(results)
     }
   })
+
+  // })
 }
 //   let
 

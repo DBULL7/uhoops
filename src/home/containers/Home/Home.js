@@ -49,14 +49,14 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="row">
+      <div className="container-fluid">
         <div className="row">
-          <div className="col-sm">
-            <a className="twitter-timeline" data-width="500" data-height="600" data-theme="dark" data-link-color="#E95F28" href="https://twitter.com/ESPNNBA?ref_src=twsrc%5Etfw">Tweets by ESPNNBA</a> 
+          <div className="col-3">
+            <a className="twitter-timeline" data-width="350" data-height="600" data-theme="dark" data-link-color="#E95F28" href="https://twitter.com/ESPNNBA?ref_src=twsrc%5Etfw">Tweets by ESPNNBA</a> 
           </div>
           {/* <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>       */}
-          <div className="col-sm">
-            {this.state.posts.map((post) =>
+          <div className="col-9 card-columns">
+            {this.state.posts.slice(0).reverse().map((post) =>
               <Post post={post}/> 
             )}
             <button className=" btn-primary rounded-circle" id="post-btn" data-toggle="modal" data-target="#exampleModal">
@@ -90,11 +90,25 @@ class Home extends Component {
 } 
 
 let Post = (post) => {
+  log(post)
   if (!post.post) return <p>Nothing yet</p>
   let display = post.post 
   // log(display.content)
   return (
-    <p>{display.content}</p>
+    <div className="card">
+      <div className="card-body">
+        <h5 className="card-title">{display.postedBy.name}</h5>
+        <p className="card-text">{display.content}</p>
+
+      </div>
+      <div className="card-footer d-flex justify-content-around">
+        <button className="btn btn-primary">
+          <i className="fas fa-thumbs-up mr-3"></i>
+          Likes {display.likes}
+        </button>
+        <button className="btn btn-primary">Comments {display.comments.length}</button>
+      </div>
+    </div>
   )
 }
 

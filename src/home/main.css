@@ -1,4 +1,6 @@
-
+html, body, section {
+  height: 100vh;
+}
 
 .nav-link:hover {
 	color: white!important;
@@ -21,6 +23,14 @@
   bottom: 30px;
   right: 80px;
   padding: 20px;
+}
+
+.card {
+  
+}
+
+.twitter-timeline {
+  height: 100vh;
 }
 
 @media (max-width: 996px) {
