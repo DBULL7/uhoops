@@ -2,6 +2,10 @@ html, body, section {
   height: 100vh;
 }
 
+body {
+  background: #141e27!important;
+}
+
 .nav-link:hover {
 	color: white!important;
 }
@@ -36,26 +40,35 @@ html, body, section {
 
 .action-btn {
   margin-right: 10px;
-  background: #f7f7f7;
+  background: #1c2937;
   border: none;
 }
 
 .action-btn:hover {
+  color: orange!important;
+}
+
+.action-btn:focus {
+  outline: none;
+}
+
+.liked {
   color: orange;
 }
 
-.hide {
-  display: none;
+.card-footer {
+  border-top: none!important;
+  background: #1c2937!important;
 }
 
-.show {
-  display: inline;
-}
+
+
 
 
 .card {
   margin-top: 20px;
   margin-bottom: 20px;
+  background: #1c2937!important;
 }
 
 @media (max-width: 996px) {
@@ -70,6 +83,9 @@ html, body, section {
 }
 
 @media (min-width: 992px) {
+  body {
+    padding-right: 17rem;
+  }
 	  #sideNav {
     text-align: center;
     position: fixed;

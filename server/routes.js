@@ -51,6 +51,7 @@ r.get('/development_league', development_league.index)
 
 const post = require('./controllers/post')
 r.get('/api/v1/post', post.get)
-r.put('/api/v1/post/:id', post.like)
+r.put('/api/v1/post', post.like)
+r.get('/api/v1/post/:id', post.likeStatus)
 // r.delete('/api/v1/post/:id', post.deletepost)
 r.post('/api/v1/post', post.post)
