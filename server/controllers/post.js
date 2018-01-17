@@ -16,7 +16,16 @@ exports.get = (req, res, next) => {
 //   let
 
 
-// exports.put = (req, res) => { }
+exports.like = (req, res) => { 
+  let token = req.cookies.jwt 
+  jwt.verify(token, 'secret', (error, decoded) => {
+    if (error) {
+      
+    } else {
+
+    }
+  })
+}
 
 // exports.deletepost = (req, res) => { }
 

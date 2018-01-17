@@ -25,12 +25,37 @@ html, body, section {
   padding: 20px;
 }
 
-.card {
-  
+.card-title {
+  margin-bottom: 0px!important;
+  line-height: 0.5!important;
 }
 
 .twitter-timeline {
   height: 100vh;
+}
+
+.action-btn {
+  margin-right: 10px;
+  background: #f7f7f7;
+  border: none;
+}
+
+.action-btn:hover {
+  color: orange;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: inline;
+}
+
+
+.card {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 996px) {
