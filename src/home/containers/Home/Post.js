@@ -14,11 +14,18 @@ class Post extends Component {
 
   componentWillMount() {
     this.setState({post: this.props.post})
+    fetch(`/api/v1/post/${this.props.post._id}`, {
+      method: 'GET',
+      credentials: 'include'
+    }).then(res => res.json())
+      .then(likeStatus => {
+        log(likeStatus)
+        if (likeStatus.message === 'Liked.') {
+          this.setState({liked: true})
+        }
+      }).catch(err => log(err))
   }
 
-  // log(post)
-  // if (!post.post) return <p>Nothing yet</p>
-  // let display = post.post
 
   displayTime() {
     let currentTime = Date.now()
@@ -47,38 +54,66 @@ class Post extends Component {
   }
 
   likePost() {
-    log('fired')
     if (this.state.liked) {
-      this.setState({ liked: false })
+      fetch('/api/v1/post', {
+        method: 'PUT',
+        credentials: 'include',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ post: this.state.post._id })
+      }).then(res => res.json())
+        .then(post => {
+          log(post, ' this is the response')
+          if (post.message) return
+          this.setState({
+            post: Object.assign(this.state.post, { likes: post.likes })
+          });
+          // get new like count
+          this.setState({ liked: false })
+        })
     } else {
-      this.setState({ liked: true})
+      // send like
+      fetch('/api/v1/post', {
+        method: 'PUT',
+        credentials: 'include',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ post: this.state.post._id })
+      }).then(res => res.json())
+        .then(post => {
+          log(post, ' this is the response')
+          if (post.message) return 
+          this.setState({
+            post: Object.assign(this.state.post, { likes: post.likes })
+          });
+          // get new like count
+          this.setState({ liked: true })
+        })
     } 
   }
 
-  displayLikeIcon() {
-
-  }
-
-
 
   render() {
-
+    let liked;
+    if (this.state.liked) {
+      liked = 'action-btn liked'
+    } else {
+      liked = 'action-btn text-muted'
+    }
     return (
       <div className="card">
           
         <div className="card-body">
-          <h5 className="card-title">{this.state.post.postedBy.name}</h5>
+          <h5 className="card-title text-white">{this.state.post.postedBy.name}</h5>
           <small className="card-subtitle text-muted">{this.displayTime()}</small>
-          <p className="card-text mt-2">{this.state.post.content}</p>
+          <p className="card-text mt-2 text-white">{this.state.post.content}</p>
 
         </div>
         <div className="card-footer">
-          <button className="action-btn like" onClick={() => this.likePost()}>
-            <i className='far fa-thumbs-up mr-2'></i>
+          <button className={liked} onClick={() => this.likePost()}>
+              <i className='far fa-thumbs-up mr-2'></i>
             {/* <i className='fas fa-thumbs-up mr-2'></i> */}
             {this.state.post.likes}
           </button>
-          <button className="action-btn"><i className="far fa-comment mr-2"></i>{this.state.post.comments.length}</button>
+          <button className="action-btn text-muted"><i className="far fa-comment mr-2"></i>{this.state.post.comments.length}</button>
         </div>
       </div>
     )

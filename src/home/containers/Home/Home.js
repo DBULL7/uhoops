@@ -60,7 +60,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="container-fluid">
+      <div className="container-fluid p-0">
         <div className="row">
           <div className="col-4">
             <a className="twitter-timeline" data-width="350" data-height="600" data-theme="dark" data-link-color="#E95F28" href="https://twitter.com/ESPNNBA?ref_src=twsrc%5Etfw">Tweets by ESPNNBA</a> 
