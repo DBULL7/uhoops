@@ -45,7 +45,7 @@ exports.login = (req, res, next) => {
       } else {
         user.password = undefined
         let token = jwt.sign({ email: user.email, name: user.name, _id: user._id }, 'secret')
-        res.cookie('jwt', token, { expires: new Date(Date.now() + 900000), httpOnly: true}).json({ message: 'Success'})
+        res.cookie('jwt', token, { maxage: 900000, httpOnly: true}).json({ message: 'Success'})
       }
     }
   })
