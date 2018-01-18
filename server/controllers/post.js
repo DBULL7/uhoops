@@ -106,3 +106,26 @@ exports.post = (req, res) => {
     }
   })
 }
+
+exports.comment = (req, res) => {
+  const token = req.cookies.jwt 
+  jwt.verify(token, 'secret', (error, decoded) => {
+    if (error) {
+      return res.status(403).json({ message: 'Not authorized' })
+    } else {
+      console.log('fied')
+      let id = decoded._id 
+      let comment = { postedBy: id, content: req.body.comment }
+      Post.findByIdAndUpdate(
+        req.body.id, 
+        { $push: { comments: comment }},
+        { new: true },
+        (err, results) => {
+          if (err) console.log(err, 'this is the err')
+          if (err) return res.status(404).json({ message: 'Post not found.'})
+          res.json(results)
+        } 
+      )
+    }
+  })
+}

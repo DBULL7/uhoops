@@ -62,13 +62,41 @@ body {
 }
 
 
-
-
-
 .card {
   margin-top: 20px;
   margin-bottom: 20px;
   background: #1c2937!important;
+}
+
+.comment-input {
+  resize: none;
+  background: #141e27!important;
+
+}
+
+.modal-content {
+  background: #1c2937!important;
+}
+
+
+
+.form-control:focus {
+  border: 1px solid orange!important;
+  outline: none!important;
+  border-color: white!important;
+  box-shadow: none!important;
+}
+
+textarea:focus {
+  outline: none!important;
+}
+
+.comment-input:focus {
+  outline: none!important;
+}
+
+.submit-comment-btn {
+  padding: 0 16px 0 16px;
 }
 
 @media (max-width: 996px) {
