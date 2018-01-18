@@ -19,7 +19,6 @@ class Post extends Component {
       credentials: 'include'
     }).then(res => res.json())
       .then(likeStatus => {
-        log(likeStatus)
         if (likeStatus.message === 'Liked.') {
           this.setState({liked: true})
         }
@@ -113,7 +112,7 @@ class Post extends Component {
             {/* <i className='fas fa-thumbs-up mr-2'></i> */}
             {this.state.post.likes}
           </button>
-          <button className="action-btn text-muted"><i className="far fa-comment mr-2"></i>{this.state.post.comments.length}</button>
+          <button onClick={() => this.props.comment(this.state.post)} className="action-btn text-muted" data-toggle="modal" data-target="#exampleModalCenter"><i className="far fa-comment mr-2"></i>{this.state.post.comments.length}</button>
         </div>
       </div>
     )
