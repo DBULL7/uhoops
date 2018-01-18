@@ -8,9 +8,10 @@ class Post extends Component {
     this.state = {
       post: {},
       liked: false,
+      commented: false
     }
-
   }
+
 
   componentWillMount() {
     this.setState({post: this.props.post})
@@ -23,6 +24,16 @@ class Post extends Component {
           this.setState({liked: true})
         }
       }).catch(err => log(err))
+
+      fetch(`/api/v1/comment/${this.props.post._id}`, {
+        method: 'GET',
+        credentials: 'include'
+      }).then(res => res.json())
+      .then(data => {
+        if (data.message === 'Commented.') {
+          this.setState({ commented : true })
+        }
+      })
   }
 
 
@@ -97,10 +108,16 @@ class Post extends Component {
     } else {
       liked = 'action-btn text-muted'
     }
+    let commented;
+    if (this.state.commented) {
+      commented = 'action-btn commented'
+    } else {
+      commented = 'action-btn text-muted'
+    }
     return (
       <div className="card">
           
-        <div className="card-body">
+        <div className="card-body" data-toggle="modal" data-target="#exampleModalLong" onClick={() => this.props.comment(this.state.post)} >
           <h5 className="card-title text-white">{this.state.post.postedBy.name}</h5>
           <small className="card-subtitle text-muted">{this.displayTime()}</small>
           <p className="card-text mt-2 text-white">{this.state.post.content}</p>
@@ -112,7 +129,9 @@ class Post extends Component {
             {/* <i className='fas fa-thumbs-up mr-2'></i> */}
             {this.state.post.likes}
           </button>
-          <button onClick={() => this.props.comment(this.state.post)} className="action-btn text-muted" data-toggle="modal" data-target="#exampleModalCenter"><i className="far fa-comment mr-2"></i>{this.state.post.comments.length}</button>
+          <button onClick={() => this.props.comment(this.state.post)} className={commented} data-toggle="modal" data-target="#exampleModalCenter">
+            <i className="far fa-comment mr-2"></i>{this.state.post.comments.length}
+          </button>
         </div>
       </div>
     )
