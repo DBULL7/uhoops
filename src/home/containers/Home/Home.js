@@ -80,6 +80,40 @@ class Home extends Component {
     }
   }
 
+  displayPost() {
+    if (this.state.commentingPost.hasOwnProperty('content')) {
+      return (
+        <div className="mb-5">
+          <h5 className="text-white">{this.state.commentingPost.postedBy.name}</h5>
+          <p className="text-white">{this.state.commentingPost.content}</p>
+          {this.displayComments()}
+        </div>
+      )
+    } else {
+      return <p></p>
+    } 
+  }
+
+  displayComments() {
+    if (this.state.commentingPost.comments.length) {
+      return (
+        <div>
+          <p className="text-white">Comments</p>
+          {this.state.commentingPost.comments.map((comment) => {
+            return (
+              <div className="border border-warning" key={comment._id}>
+                <p className="text-secondary">{comment.postedBy.name}</p>
+                <p className="text-secondary">{comment.content}</p>
+              </div>
+          )
+          })}
+        </div>
+      )
+    } else {
+      return
+    }
+  }
+
   addComment() {
     fetch('/api/v1/comment', {
       method: 'POST',
@@ -88,7 +122,15 @@ class Home extends Component {
       body: JSON.stringify({ comment: this.state.comment, id: this.state.commentingPost._id })
     }).then(res => res.json()) 
     .then(data => {
-      log(data)
+      $('#exampleModalCenter').modal('hide')
+      fetch('/api/v1/post', {
+        method: 'GET',
+      }).then(res => res.json())
+        .then(results => {
+          
+          this.setState({ posts: results, comment: '' })
+          // this.forceUpdate()
+        })
     }).catch(err => log(err))
   }
 
@@ -114,7 +156,7 @@ class Home extends Component {
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">Create Post</h5>
+                <h5 className="modal-title text-white" id="exampleModalLabel">Create Post</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -142,6 +184,15 @@ class Home extends Component {
                   <button type="button" className="btn btn-primary" onClick={() => this.addComment()}>Comment</button>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="modal fade" id="exampleModalLong" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-body text-secondary">
+                {this.displayPost()}
+                </div>
             </div>
           </div>
         </div>
