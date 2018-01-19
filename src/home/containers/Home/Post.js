@@ -12,6 +12,9 @@ class Post extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ post: nextProps.post})
+  }
 
   componentWillMount() {
     this.setState({post: this.props.post})

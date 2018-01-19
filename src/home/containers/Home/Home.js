@@ -101,16 +101,12 @@ class Home extends Component {
           <p className="text-white">Comments</p>
           {this.state.commentingPost.comments.map((comment) => {
             return (
-              <div>
+              <div className="border border-warning" key={comment._id}>
                 <p className="text-secondary">{comment.postedBy.name}</p>
                 <p className="text-secondary">{comment.content}</p>
               </div>
           )
-                
-             
           })}
-          
-
         </div>
       )
     } else {
@@ -126,7 +122,15 @@ class Home extends Component {
       body: JSON.stringify({ comment: this.state.comment, id: this.state.commentingPost._id })
     }).then(res => res.json()) 
     .then(data => {
-      log(data)
+      $('#exampleModalCenter').modal('hide')
+      fetch('/api/v1/post', {
+        method: 'GET',
+      }).then(res => res.json())
+        .then(results => {
+          
+          this.setState({ posts: results, comment: '' })
+          // this.forceUpdate()
+        })
     }).catch(err => log(err))
   }
 
