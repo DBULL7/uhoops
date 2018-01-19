@@ -103,6 +103,32 @@ textarea:focus {
   padding: 0 16px 0 16px;
 }
 
+.comment-modal {
+  padding: 10px;
+}
+
+.comment-box {
+  border-top: 1px solid #0a0e13;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-content {
+  padding-bottom: 0px!important;
+  margin-bottom: 0px!important;
+}
+
+.comments-section-header {
+  padding-left: 10px;
+}
+
+.commenters-name {
+  margin-bottom: 0px!important;
+  padding-bottom: 0px!important;
+  color: white;
+}
+
 @media (max-width: 996px) {
 
 

@@ -83,9 +83,9 @@ class Home extends Component {
   displayPost() {
     if (this.state.commentingPost.hasOwnProperty('content')) {
       return (
-        <div className="mb-5">
-          <h5 className="text-white">{this.state.commentingPost.postedBy.name}</h5>
-          <p className="text-white">{this.state.commentingPost.content}</p>
+        <div>
+          <h5 className="text-white comment-modal">{this.state.commentingPost.postedBy.name}</h5>
+          <p className="text-white comment-modal mb-5">{this.state.commentingPost.content}</p>
           {this.displayComments()}
         </div>
       )
@@ -98,12 +98,12 @@ class Home extends Component {
     if (this.state.commentingPost.comments.length) {
       return (
         <div>
-          <p className="text-white">Comments</p>
+          <p className="text-white comments-section-header">Comments</p>
           {this.state.commentingPost.comments.map((comment) => {
             return (
-              <div className="border border-warning" key={comment._id}>
-                <p className="text-secondary">{comment.postedBy.name}</p>
-                <p className="text-secondary">{comment.content}</p>
+              <div className="comment-box" key={comment._id}>
+                <p className="commenters-name">{comment.postedBy.name}</p>
+                <p className="comment-content">{comment.content}</p>
               </div>
           )
           })}
