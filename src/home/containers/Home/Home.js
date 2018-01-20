@@ -80,39 +80,7 @@ class Home extends Component {
     }
   }
 
-  displayPost() {
-    if (this.state.commentingPost.hasOwnProperty('content')) {
-      return (
-        <div>
-          <h5 className="text-white comment-modal">{this.state.commentingPost.postedBy.name}</h5>
-          <p className="text-white comment-modal mb-5">{this.state.commentingPost.content}</p>
-          {this.displayComments()}
-        </div>
-      )
-    } else {
-      return <p></p>
-    } 
-  }
 
-  displayComments() {
-    if (this.state.commentingPost.comments.length) {
-      return (
-        <div>
-          <p className="text-white comments-section-header">Comments</p>
-          {this.state.commentingPost.comments.map((comment) => {
-            return (
-              <div className="comment-box" key={comment._id}>
-                <p className="commenters-name">{comment.postedBy.name}</p>
-                <p className="comment-content">{comment.content}</p>
-              </div>
-          )
-          })}
-        </div>
-      )
-    } else {
-      return
-    }
-  }
 
   addComment() {
     fetch('/api/v1/comment', {
@@ -152,7 +120,7 @@ class Home extends Component {
           </div>
         </div>
 
-        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="exampleModal" tabIndex="-1" >
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <div className="modal-header">
@@ -184,15 +152,6 @@ class Home extends Component {
                   <button type="button" className="btn btn-primary" onClick={() => this.addComment()}>Comment</button>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className="modal fade" id="exampleModalLong" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-body text-secondary">
-                {this.displayPost()}
-                </div>
             </div>
           </div>
         </div>

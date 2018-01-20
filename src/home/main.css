@@ -62,14 +62,32 @@ body {
 
 .card-footer {
   border-top: none!important;
-  background: #1c2937!important;
+  /* background: #1c2937!important; */
 }
 
 
 .card {
   margin-top: 20px;
   margin-bottom: 20px;
+  
+}
+
+.bg-color {
   background: #1c2937!important;
+}
+
+.post-modal-bg {
+ background: #1c2937!important; 
+ 
+}
+
+.bg-color:hover {
+  background: #141e27!important; 
+  border: 1px solid #000;
+}
+
+.bg-color:hover > div > button {
+  background: #141e27!important;
 }
 
 .comment-input {

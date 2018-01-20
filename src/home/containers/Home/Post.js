@@ -103,6 +103,94 @@ class Post extends Component {
     } 
   }
 
+  addNewComment() {
+    this.props.comment(this.state.post)
+    $('#exampleModalCenter').modal('show')
+    $(`#${this.state.post._id}`).modal('hide')
+  }
+
+
+  displayComments() {
+    if (this.state.post.comments.length) {
+      return (
+        <div>
+          <p className="text-white comments-section-header">Comments</p>
+          {this.state.post.comments.map((comment) => {
+            return (
+              <div className="comment-box" key={comment._id}>
+                <p className="commenters-name">{comment.postedBy.name}</p>
+                <p className="comment-content">{comment.content}</p>
+              </div>
+            )
+          })}
+        </div>
+      )
+    } else {
+      return
+    }
+  }
+
+
+  displayPost() {
+    let liked;
+    if (this.state.liked) {
+      liked = 'action-btn liked'
+    } else {
+      liked = 'action-btn text-muted'
+    }
+    let commented;
+    if (this.state.commented) {
+      commented = 'action-btn commented'
+    } else {
+      commented = 'action-btn text-muted'
+    }
+    if (this.state.post.hasOwnProperty('_id')) {
+      return (
+        <div className="card post-modal-bg">
+
+          <div className="card-body" data-toggle="modal" data-target={`#${this.state.post._id}`} onClick={() => console.log('boom')}>
+            <h5 className="card-title text-white">{this.state.post.postedBy.name}</h5>
+            <small className="card-subtitle text-muted">{this.displayTime()}</small>
+            <p className="card-text mt-2 text-white">{this.state.post.content}</p>
+
+          </div>
+          <div className="card-footer">
+            <button className={liked} onClick={() => this.likePost()}>
+              <i className='far fa-thumbs-up mr-2'></i>
+              {/* <i className='fas fa-thumbs-up mr-2'></i> */}
+              {this.state.post.likes}
+            </button>
+            <button className={commented} onClick={() => this.addNewComment()}>
+              <i className="far fa-comment mr-2"></i>{this.state.post.comments.length}
+            </button>
+          </div>
+          {this.displayComments()}
+        </div>
+      )
+    } else {
+      return <p></p>
+    }
+  }
+
+
+  renderModal() {
+    if (this.state.post.hasOwnProperty('_id')) {
+      return (
+        <div className="modal fade" id={this.state.post._id} tabIndex="-1">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-body text-secondary">
+                {this.displayPost()}
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    } else {
+      return <p></p>
+    }
+  }
+
 
   render() {
     let liked;
@@ -118,9 +206,9 @@ class Post extends Component {
       commented = 'action-btn text-muted'
     }
     return (
-      <div className="card">
+      <div className="card bg-color">
           
-        <div className="card-body" data-toggle="modal" data-target="#exampleModalLong" onClick={() => this.props.comment(this.state.post)} >
+        <div className="card-body" data-toggle="modal" data-target={`#${this.state.post._id}`} onClick={() => console.log('boom')}>
           <h5 className="card-title text-white">{this.state.post.postedBy.name}</h5>
           <small className="card-subtitle text-muted">{this.displayTime()}</small>
           <p className="card-text mt-2 text-white">{this.state.post.content}</p>
@@ -136,6 +224,7 @@ class Post extends Component {
             <i className="far fa-comment mr-2"></i>{this.state.post.comments.length}
           </button>
         </div>
+        {this.renderModal()}
       </div>
     )
   }
