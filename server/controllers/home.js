@@ -13,3 +13,7 @@ exports.tours = (req, res) => {
 exports.profile = (req, res) => {
 	res.render('home/profile', {})
 }
+
+exports.settings = (req, res) => {
+	res.render('home/profile', {})
+}

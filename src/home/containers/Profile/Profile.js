@@ -6,10 +6,16 @@ class Profile extends Component {
     super(props)
     this.state = {}
   }
+
+  componentWillMount() {
+    // make req to get user profile, and posts
+  }
   
   render() {
     return (
-      <div>Hello Profile</div>
+      <div className="col-10">
+
+      </div>
     )
   }
 }

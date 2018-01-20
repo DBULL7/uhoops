@@ -24,6 +24,7 @@ const home = require('./controllers/home')
 r.get('/messaging', checkAuth, home.messaging)
 r.get('/tours', checkAuth, home.tours)
 r.get('/profile', checkAuth, home.profile)
+r.get('/settings', checkAuth, home.settings)
 
 
 const camps = require('./controllers/camps')

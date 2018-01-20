@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import Home from '../Home/HomeContainer'
 
+import SettingsContainer from '../Settings/SettingsContainer'
 import CampsContainer from '../Camps/CampsContainer'
 import ToursContainer from '../Tours/ToursContainer'
 import ProfileContainer from '../Profile/ProfileContainer'
@@ -14,6 +15,9 @@ class App extends Component {
       <section>
         <NavContainer/>
         <Switch>
+				  <Route exact path='/settings' render={(history) => {
+				    return <SettingsContainer/>
+				  }}/>
 				  <Route exact path='/camps' render={(history) => {
 				    return <CampsContainer/>
 				  }}/>

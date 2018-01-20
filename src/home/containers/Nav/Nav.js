@@ -46,6 +46,11 @@ class Nav extends Component {
               </NavLink>                
             </li>
             <li className="nav-item">
+              <NavLink activeClassName="selected" className="nav-link" to="/settings">
+                <span className="text">Settings</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <a className="nav-link" href="/logout">Logout</a>
             </li>
           </ul>
