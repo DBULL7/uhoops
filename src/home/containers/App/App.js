@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import Home from '../Home/HomeContainer'
 
+import EventsContainer from '../Events/EventsContainer'
 import SettingsContainer from '../Settings/SettingsContainer'
-import CampsContainer from '../Camps/CampsContainer'
-import ToursContainer from '../Tours/ToursContainer'
 import ProfileContainer from '../Profile/ProfileContainer'
-import MessagingContainer from '../Messaging/MessagingContainer'
 import NavContainer from '../Nav/NavContainer'
 
 class App extends Component {
@@ -15,20 +13,14 @@ class App extends Component {
       <section>
         <NavContainer/>
         <Switch>
+				  <Route exact path='/events' render={(history) => {
+				    return <EventsContainer/>
+				  }}/>
 				  <Route exact path='/settings' render={(history) => {
 				    return <SettingsContainer/>
 				  }}/>
-				  <Route exact path='/camps' render={(history) => {
-				    return <CampsContainer/>
-				  }}/>
-				  <Route exact path='/tours' render={(history) => {
-				    return <ToursContainer/>
-				  }}/>
-				  <Route exact path='/profile' render={(history) => {
-				    return <ProfileContainer/>
-				  }}/>
-				  <Route exact path='/messaging' render={(history) => {
-				    return <MessagingContainer/>
+				  <Route path='/user/:id' render={(props) => {
+				    return <ProfileContainer {...props}/>
 				  }}/>
           <Route path='/' render={(history) => {
             return <Home history={history} />

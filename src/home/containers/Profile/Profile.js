@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Profile.css'
+let log = console.log 
 
 class Profile extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class Profile extends Component {
   }
 
   componentWillMount() {
-    // make req to get user profile, and posts
+    log(this.props.match.params.id)
   }
   
   render() {

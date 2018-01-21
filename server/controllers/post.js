@@ -69,7 +69,7 @@ exports.likeStatus = (req, res) => {
           if (docs.length) {
             res.status(200).json({ message: 'Liked.' })
           } else {
-            res.status(404).json({ message: 'Not Liked.'})
+            res.status(200).json({ message: 'Not Liked.'})
           }
         }
       })
