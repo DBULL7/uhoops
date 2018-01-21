@@ -21,9 +21,12 @@ const tours = require('./controllers/tours')
 r.get('/tours', tours.index)
 
 const home = require('./controllers/home')
-r.get('/messaging', checkAuth, home.messaging)
-r.get('/tours', checkAuth, home.tours)
-r.get('/profile', checkAuth, home.profile)
+r.get('/events', checkAuth, home.index)
+r.get('/profile', checkAuth, home.index)
+r.get('/settings', checkAuth, home.index)
+r.get('/user/:id', checkAuth, (req, res) => {
+  res.redirect('/')
+})
 
 
 const camps = require('./controllers/camps')
@@ -57,3 +60,9 @@ r.get('/api/v1/post/:id', post.likeStatus)
 r.post('/api/v1/post', post.post)
 r.post('/api/v1/comment', post.comment)
 r.get('/api/v1/comment/:id', post.commentStatus)
+
+const user = require('./controllers/user')
+r.get('/api/v1/user', user.get)
+r.put('/api/v1/user/:id', user.put)
+r.delete('/api/v1/user/:id', user.deleteuser)
+r.post('/api/v1/user', user.post)

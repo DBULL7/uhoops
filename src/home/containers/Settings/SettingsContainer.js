@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
-import Tours from './Tours'
+import Settings from './Settings'
 
 const mapStateToProps = (state) => {
   return state
 }
 
-export default connect(mapStateToProps, null)(Tours)
+export default connect(mapStateToProps, null)(Settings)

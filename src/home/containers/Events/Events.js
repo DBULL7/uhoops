@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './Tours.css'
+import './Events.css'
 
-class Tours extends Component {
+class Events extends Component {
   constructor(props) {
     super(props)
     this.state = {}
@@ -9,9 +9,9 @@ class Tours extends Component {
   
   render() {
     return (
-      <div>Hello Tours</div>
+      <div>Hello Events</div>
     )
   }
 }
 
-export default Tours
+export default Events

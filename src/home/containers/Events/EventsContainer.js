@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
-import Camps from './Camps'
+import Events from './Events'
 
 const mapStateToProps = (state) => {
   return state
 }
 
-export default connect(mapStateToProps, null)(Camps)
+export default connect(mapStateToProps, null)(Events)
