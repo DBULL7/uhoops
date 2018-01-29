@@ -8,7 +8,7 @@ r.get('/', landing.index)
 
 const account = require('./controllers/account')
 r.get('/api/v1/account', account.get)
-r.put('/api/v1/account/:id', account.put)
+r.patch('/api/v1/account/', account.patch)
 // r.delete('/api/v1/account/:id', account.deleteaccount)
 r.post('/api/v1/account', account.createAccount)
 r.post('/api/v1/account/login', account.login)
@@ -66,3 +66,5 @@ r.get('/api/v1/user', user.get)
 r.put('/api/v1/user/:id', user.put)
 r.delete('/api/v1/user/:id', user.deleteuser)
 r.post('/api/v1/user', user.post)
+
+
