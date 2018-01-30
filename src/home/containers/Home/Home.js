@@ -63,7 +63,8 @@ class Home extends Component {
     })
   }
 
-  comment(post) {
+  comment(post, e) {
+    e.stopPropagation()
     this.setState({ commentingPost: post })
   }
 
