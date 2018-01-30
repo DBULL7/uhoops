@@ -232,5 +232,9 @@ textarea:focus {
     padding: 10px;
     right: 50px;
   }
+  .col-5 {
+    flex: 0 0 100%!important;
+    max-width: 100%!important;
+  }
 }
 

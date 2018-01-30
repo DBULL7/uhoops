@@ -12,6 +12,7 @@ r.patch('/api/v1/account/', account.patch)
 // r.delete('/api/v1/account/:id', account.deleteaccount)
 r.post('/api/v1/account', account.createAccount)
 r.post('/api/v1/account/login', account.login)
+r.get('/api/v1/account/:id', account.profile)
 
 
 const about = require('./controllers/about')
