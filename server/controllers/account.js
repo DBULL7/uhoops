@@ -74,3 +74,20 @@ exports.patch = (req, res) => {
     })
   })
 }
+
+exports.profile = (req, res) => {
+  let token = req.cookies.jwt
+  jwt.verify(token, 'secret', (error, decoded) => {
+    if (error) {
+      res.status(500).send(error)
+    } else {
+      User.findOne({ _id: req.params.id }, (err, user) => {
+        if (err) return res.status(err)
+        user.password = undefined
+        user.email = undefined
+        user.__v = undefined
+        res.json(user)
+      })
+    }
+  }) 
+}
