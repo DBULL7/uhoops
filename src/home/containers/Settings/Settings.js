@@ -1,12 +1,74 @@
 import React, { Component } from 'react'
 import './Settings.css'
+let log = console.log 
 
 class Settings extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      name: '',
+      location: '',
+      team: '',
+      phone: '',
+      position: '',
+      publicEmail: '',
+      instagram: '',
+      facebook: '',
+      twitter: '',
+      snapchat: '',
+      bio: ''
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // fetch the users profile info
+      let { name, location, team, phone, position, publicEmail, instagram, facebook, twitter, snapchat, bio } = nextProps.user
+      this.setState({
+        name: name, location: location, team: team, phone: phone, position: position, publicEmail: publicEmail, instagram: instagram, facebook: facebook, twitter: twitter, snapchat: snapchat, bio: bio 
+      })
+  }
+
+  componentDidMount() {
+    if (this.props.user) {
+      let { name, location, team, phone, position, publicEmail, instagram, facebook, twitter, snapchat, bio } = this.props.user
+      this.setState({
+        name: name, location: location, team: team, phone: phone, position: position, publicEmail: publicEmail, instagram: instagram, facebook: facebook, twitter: twitter, snapchat: snapchat, bio: bio
+      }) 
+    }
+
   }
   
+  updateProfile() {
+    let { name, location, team, phone, position, publicEmail, instagram, facebook, twitter, snapchat, bio } = this.state
+    // fetch post to api / save it and register response
+    fetch('/api/v1/account', {
+      method: 'PATCH',
+      credentials: 'include',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name,
+        location: location,
+        team: team,
+        phone: phone,
+        position: position,
+        publicEmail: publicEmail,
+        instagram: instagram,
+        facebook: facebook,
+        twitter: twitter,
+        snapchat: snapchat,
+        bio: bio
+      })
+    }).then(res => res.json())
+      .then(data => {
+        let { name, location, team, phone, position, publicEmail, instagram, facebook, twitter, snapchat, bio } = data
+        this.setState({
+          name: name, location: location, team: team, phone: phone, position: position, publicEmail: publicEmail, instagram: instagram, facebook: facebook, twitter: twitter, snapchat: snapchat, bio: bio
+        }) 
+      }).catch(err => {
+        log(err)
+      })
+  }
+
   render() {
     return (
       <div className="col-sm-12 settings-container">
@@ -22,70 +84,64 @@ class Settings extends Component {
               <div className="tab-pane fade show active text-white" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
                 <div className="form-row">
                   <div className="form-group col-md-6">
-                    <label for="inputEmail4">Name</label>
-                    <input type="text" className="form-control" id="inputEmail4"/>
+                    <label htmlFor="inputEmail4">Name</label>
+                    <input className="form-control" id="inputEmail4" value={this.state.name} onChange={(e) => this.setState({name: e.target.value})}/>
                   </div>
                   <div className="form-group col-md-6">
-                    <label for="inputPassword4">Location</label>
-                    <input type="text" className="form-control" id="inputPassword4"/>
+                    <label htmlFor="inputPassword4">Location</label>
+                    <input className="form-control" id="inputPassword4" value={this.state.location} onChange={(e) => this.setState({location: e.target.value})}/>
                   </div>
                 </div>
                     <div className="form-group">
-                      <label for="inputAddress">Team</label>
-                      <input type="text" className="form-control" id="inputAddress"/>
+                      <label htmlFor="inputAddress">Team</label>
+                      <input className="form-control" id="inputAddress" value={this.state.team} onChange={(e) => this.setState({team: e.target.value})}/>
                     </div>
                       <div className="form-group">
-                        <label for="inputAddress2">Phone</label>
-                        <input type="tel" className="form-control" id="inputAddress2"/>
+                        <label htmlFor="inputAddress2">Phone</label>
+                        <input className="form-control" id="inputAddress2" value={this.state.phone} onChange={(e) => this.setState({phone: e.target.value})}/>
                         </div>
                         <div className="form-row">
                           <div className="form-group col-md-6">
-                            <label for="inputState">Position</label>
-                            <select id="inputState" className="form-control">
-                              <option selected>Point Guard</option>
-                              <option>...</option>
-                            </select>
+                            <label htmlFor="inputState">Position</label>
+                            <input className="form-control" id="role" value={this.state.position} onChange={(e) => this.setState({position: e.target.value})}/>
                           </div>
                           <div className="form-group col-md-6">
-                            <label for="publicEmail">Public Email</label>
-                            <input type="text" className="form-control" id="publicEmail"/>
+                            <label htmlFor="publicEmail">Public Email</label>
+                            <input className="form-control" id="publicEmail" value={this.state.publicEmail} onChange={(e) => this.setState({publicEmail: e.target.value})}/>
                           </div>
                         </div>
                         <div className="form-row">
                           <div className="form-group col-md-6">
-                            <label for="instagram">Instagram</label>
-                            <input className="form-control" id="instagram"/>
+                            <label htmlFor="instagram">Instagram</label>
+                            <input className="form-control" id="instagram" value={this.state.instagram} onChange={(e) => this.setState({instagram: e.target.value})}/>
                           </div>
                           <div className="form-group col-md-6">
-                            <label for="facebook">Facebook</label>
-                            <input className="form-control" id="facebook"/>
+                            <label htmlFor="facebook">Facebook</label>
+                            <input className="form-control" id="facebook" value={this.state.facebook} onChange={(e) => this.setState({facebook: e.target.value})}/>
                           </div>
 
                         </div>
                         <div className="form-row">
                           <div className="form-group col-md-6">
-                            <label for="twitter">Twitter</label>
-                            <input className="form-control" id="twitter"/>
+                            <label htmlFor="twitter">Twitter</label>
+                            <input className="form-control" id="twitter" value={this.state.twitter} onChange={(e) => this.setState({twitter: e.target.value})}/>
                           </div>
                           <div className="form-group col-md-6">
-                            <label for="snapchat">Snapchat</label>
-                            <input className="form-control" id="snapchat"/>
+                            <label htmlFor="snapchat">Snapchat</label>
+                            <input className="form-control" id="snapchat" value={this.state.snapchat} onChange={(e) => this.setState({snapchat: e.target.value})}/>
                           </div>
-
                         </div> 
                         <div className="form-row">
-                  <div className="form-group">
-                    <label for="exampleFormControlFile1">Profile Picture</label>
-                    <input type="file" className="form-control-file" id="exampleFormControlFile1"/>
-                    </div>
+                          <div className="form-group">
+                            <textarea className="col-md-12" rows="3" placeholder="Bio" value={this.state.bio} onChange={(e) => this.setState({bio: e.target.value})}/>
+                            <button className="btn btn-primary" onClick={() => this.updateProfile()}>Update Profile</button>
+                          </div>
                         </div>
-                
-                            <textarea className="col-md-12" rows="3" placeholder="Bio"/>
-                            <button className="btn btn-primary">Update Profile</button>
                       </div>
 
               <div className="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-                <button className="btn btn-danger">Delete Account</button> 
+                <button className="btn btn-danger">Delete Account</button>
+                <button className="btn btn-warning">Change Password</button>
               </div>
             </div>
           </div>

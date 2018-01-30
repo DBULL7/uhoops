@@ -100,7 +100,28 @@ exports.commentStatus = (req, res) => {
   })
 }
 
-// exports.deletepost = (req, res) => { }
+exports.deletepost = (req, res) => { 
+  const token = req.cookies.jwt 
+  jwt.verify(token, 'secret', (error, decoded) => {
+    if (error) {
+      res.status(500).send(error)
+    } else {
+      let userID = decoded._id 
+      User.findById({ _id: userID }, (err, user) => {
+        if (err) {
+          return res.status(403).json({message: 'User does not exist'})
+        }
+        Post.findByIdAndRemove({_id: req.params.id}, (err, post) => {
+          if (err) {
+            res.json(err)
+          } else {
+            res.json({message: 'Success'})
+          }
+        })
+      })
+    }
+  })
+}
 
 exports.post = (req, res) => {
   const token = req.cookies.jwt

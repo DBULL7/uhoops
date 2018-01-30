@@ -2,11 +2,6 @@ let bcrypt = require('bcrypt')
 let User = require('../models/User')
 let jwt = require('jsonwebtoken')
 
-exports.get = (req, res) => {
-  res.send(req.cookies)
-}
-
-exports.put = (req, res) => { }
 
 // exports.deleteaccount = (req, res) => { }
 
@@ -48,5 +43,34 @@ exports.login = (req, res, next) => {
         res.cookie('jwt', token, { maxage: 900000, httpOnly: true}).json({ message: 'Success'})
       }
     }
+  })
+}
+
+exports.get = (req, res) => {
+  let token = req.cookies.jwt
+  jwt.verify(token, 'secret', (error, decoded) => {
+    if (error) {
+      res.status(500).send(error)
+    } else {
+      let { _id, name, email } = decoded
+      User.findOne({ _id: _id}, (err, user) => {
+        if (err) return res.status(err)
+        user.password = undefined
+        res.json(user)
+      })
+    }
+  })
+}
+
+exports.patch = (req, res) => {
+  let token = req.cookies.jwt
+  jwt.verify(token, 'secret', (error, decoded) => {
+    if (error) res.status(500).send(error)
+    let { _id, name, email } = decoded
+    if (req.body.name == '') return res.status(406).json({ message: 'No Name Included.'})
+    User.findOneAndUpdate({ _id: _id }, req.body, { new: true },(err, user) => {
+      if (err) return res.status(err)
+      res.json(user)
+    })
   })
 }

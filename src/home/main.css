@@ -90,6 +90,10 @@ body {
   background: #141e27!important;
 }
 
+.bg-color:hover > .card-body > h5 > div > button {
+ background: #141e27!important; 
+}
+
 .comment-input {
   resize: none;
   background: #141e27!important;
@@ -149,6 +153,16 @@ textarea:focus {
 
 .settings-container {
   padding: 30px 30px 0 30px;
+}
+
+.ellipse-icon {
+  float: right;
+}
+
+.ellipse-button {
+  background:#1d2a38;
+  border: none;
+  color: white;
 }
 
 @media (max-width: 996px) {
