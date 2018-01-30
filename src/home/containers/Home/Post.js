@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 let log = console.log
-
+import { Link } from 'react-router-dom'
 
 class Post extends Component {
   constructor(props) {
@@ -66,7 +66,8 @@ class Post extends Component {
     return time 
   }
 
-  likePost() {
+  likePost(e) {
+    e.stopPropagation()
     if (this.state.liked) {
       fetch('/api/v1/post', {
         method: 'PUT',
@@ -75,7 +76,6 @@ class Post extends Component {
         body: JSON.stringify({ post: this.state.post._id })
       }).then(res => res.json())
         .then(post => {
-          log(post, ' this is the response')
           if (post.message) return
           this.setState({
             post: Object.assign(this.state.post, { likes: post.likes })
@@ -118,7 +118,7 @@ class Post extends Component {
           {this.state.post.comments.map((comment) => {
             return (
               <div className="comment-box" key={comment._id}>
-                <p className="commenters-name">{comment.postedBy.name}</p>
+                <Link className="commenters-name text-white" to={`/user/${comment.postedBy._id}`}>{comment.postedBy.name}</Link>
                 <p className="comment-content">{comment.content}</p>
               </div>
             )
@@ -149,7 +149,8 @@ class Post extends Component {
         <div className="card post-modal-bg">
 
           <div className="card-body" data-toggle="modal" data-target={`#${this.state.post._id}`} onClick={() => console.log('boom')}>
-            <h5 className="card-title text-white">{this.state.post.postedBy.name}
+            <h5 className="card-title text-white">
+              <Link className="text-white" to={`/user/${this.state.post.postedBy._id}`}>{this.state.post.postedBy.name}</Link>
               <div className="dropdown ellipse-icon">
                 <button className="ellipse-button" data-toggle="dropdown">
                   <i className="fas fa-ellipsis-h fa-xs "></i>
@@ -164,7 +165,6 @@ class Post extends Component {
           <div className="card-footer">
             <button className={liked} onClick={() => this.likePost()}>
               <i className='far fa-thumbs-up mr-2'></i>
-              {/* <i className='fas fa-thumbs-up mr-2'></i> */}
               {this.state.post.likes}
             </button>
             <button className={commented} onClick={() => this.addNewComment()}>
@@ -198,9 +198,8 @@ class Post extends Component {
     }
   }
 
-  deletePost() {
-    log('fired')
-    // refresh page after sending delete req
+  deletePost(e) {
+    e.stopPropagation();
     fetch(`api/v1/post/${this.state.post._id}`, {
       method: 'DELETE',
       credentials: 'include'
@@ -219,7 +218,7 @@ class Post extends Component {
         return(
           <div className="dropdown-menu dropdown">
             <li className="dropdown-item" href="#">Report</li>
-            <li className="dropdown-item" onClick={() => this.deletePost()}>Delete</li>
+            <li className="dropdown-item" onClick={(e) => this.deletePost(e)}>Delete</li>
           </div>  
         )
       } 
@@ -230,6 +229,10 @@ class Post extends Component {
         <li className="dropdown-item" href="#">Report</li>
       </div> 
     )
+  }
+
+  clickModal() {
+    $(`#${this.state.post._id}`).modal('toggle')
   }
 
 
@@ -247,11 +250,11 @@ class Post extends Component {
       commented = 'action-btn text-muted'
     }
     return (
-      <div className="card bg-color" data-toggle="modal" data-target={`#${this.state.post._id}`}>
+      <div className="card bg-color" onClick={() => this.clickModal()}>
         <div className="card-body" >
-          <h5 className="card-title text-white">{this.state.post.postedBy.name} 
+          <h5 className="card-title text-white" onClick={(e) => e.stopPropagation()}><Link className="text-white" to={`/user/${this.state.post.postedBy._id}`}>{this.state.post.postedBy.name}</Link>
             <div className="dropdown ellipse-icon">
-              <button className="ellipse-button" data-toggle="dropdown">
+              <button className="ellipse-button" data-toggle="dropdown" onClick={(e) => e.stopPropagation()}>
                 <i className="fas fa-ellipsis-h fa-xs"></i>
               </button>
                 {this.options()}
@@ -261,11 +264,11 @@ class Post extends Component {
           <p className="card-text mt-2 text-white">{this.state.post.content}</p>
         </div>
         <div className="card-footer">
-          <button className={liked} onClick={() => this.likePost()}>
+          <button className={liked} onClick={(e) => this.likePost(e)}>
               <i className='far fa-thumbs-up mr-2'></i>
             {this.state.post.likes}
           </button>
-          <button onClick={() => this.props.comment(this.state.post)} className={commented} data-toggle="modal" data-target="#exampleModalCenter">
+          <button onClick={(e) => this.props.comment(this.state.post, e)} className={commented} data-toggle="modal" data-target="#exampleModalCenter">
             <i className="far fa-comment mr-2"></i>{this.state.post.comments.length}
           </button>
         </div>
