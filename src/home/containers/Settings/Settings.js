@@ -20,18 +20,22 @@ class Settings extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillReceiveProps(nextProps) {
     // fetch the users profile info
-    fetch('/api/v1/account', {
-      method: 'GET',
-      credentials: 'include',
-    }).then(res => res.json())
-    .then(data => {
-      let {name, location, team, phone, position, publicEmail, instagram, facebook, twitter, snapchat, bio} = data
+      let { name, location, team, phone, position, publicEmail, instagram, facebook, twitter, snapchat, bio } = nextProps.user
       this.setState({
         name: name, location: location, team: team, phone: phone, position: position, publicEmail: publicEmail, instagram: instagram, facebook: facebook, twitter: twitter, snapchat: snapchat, bio: bio 
       })
-    }) 
+  }
+
+  componentDidMount() {
+    if (this.props.user) {
+      let { name, location, team, phone, position, publicEmail, instagram, facebook, twitter, snapchat, bio } = this.props.user
+      this.setState({
+        name: name, location: location, team: team, phone: phone, position: position, publicEmail: publicEmail, instagram: instagram, facebook: facebook, twitter: twitter, snapchat: snapchat, bio: bio
+      }) 
+    }
+
   }
   
   updateProfile() {
