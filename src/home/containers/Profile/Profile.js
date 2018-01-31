@@ -26,25 +26,29 @@ class Profile extends Component {
     if (!this.state.user) {
       return <p></p>
     }
-    let {name, publicEmail, phone, bio, location, role, instagram, facebook, twitter } = this.state.user
+    let {name, publicEmail, phone, bio, location, position, instagram, facebook, twitter } = this.state.user
     return (
-      <div className="card-body">
-        <h5 className="card-title mb-3">{name}</h5>
-        <h6 className="card-subtitle mb-2 text-muted">{role}</h6>
-        <p className="card-text">{location}</p>
-        <p className="card-text">{bio}</p>
-        <a href="#" className="card-link">{instagram}</a>
-        <a href="#" className="card-link">{facebook}</a>
+      <div className="w-50 card">
+        <div className="card-body">
+          <h5 className="card-title mb-3">{name}</h5>
+          <h6 className="card-subtitle mb-2 text-muted">{position}</h6>
+          <p className="card-text">{location}</p>
+          <p className="card-text">{bio}</p>
+        </div>
+        <div className="card-footer">
+          {instagram !== '' ? <a href={instagram} className="card-link"><i className="fab fa-instagram fa-lg"></i></a> : <a></a>}
+          {facebook  !== '' ? <a href={facebook}  className="card-link"><i className="fab fa-facebook-square fa-lg"></i></a> : <a></a>}
+          {twitter   !== '' ? <a href={twitter}   className="card-link"><i className="fab fa-twitter fa-lg"></i></a> : <a></a>}
+        </div>
       </div>
     )
   }
 
   render() {
     return (
-      <div className="col-10">
-        <div className="card">
-            {this.info()}
-        </div>
+      <div className="d-flex justify-content-center">
+        {this.info()}
+            
       </div>
     )
   }
