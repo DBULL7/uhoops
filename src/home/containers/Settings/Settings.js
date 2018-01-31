@@ -50,7 +50,7 @@ class Settings extends Component {
         location: location,
         team: team,
         phone: phone,
-        position: position,
+        role: role,
         publicEmail: publicEmail,
         instagram: instagram,
         facebook: facebook,
