@@ -198,27 +198,13 @@ class Post extends Component {
     }
   }
 
-  deletePost(e) {
-    e.stopPropagation();
-    fetch(`api/v1/post/${this.state.post._id}`, {
-      method: 'DELETE',
-      credentials: 'include'
-    }).then(res => res.json())
-    .then(data => {
-      log(data)
-      location.reload();
-    }).catch(err => {
-      log('Error:', err)
-    })
-  }
-
   options() {
     if (this.props.user) {
       if (this.props.user._id == this.props.post.postedBy._id) {
         return(
           <div className="dropdown-menu dropdown">
             <li className="dropdown-item" href="#">Report</li>
-            <li className="dropdown-item" onClick={(e) => this.deletePost(e)}>Delete</li>
+            <li className="dropdown-item" onClick={(e) => this.props.deletePost(e, this.state.post._id)}>Delete</li>
           </div>  
         )
       } 

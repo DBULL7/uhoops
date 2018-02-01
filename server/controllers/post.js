@@ -170,3 +170,16 @@ exports.comment = (req, res) => {
     }
   })
 }
+
+exports.userPosts = (req, res) => {
+  Post.find({ postedBy: req.params.id })
+    .populate('postedBy', 'name')
+    .populate('comments.postedBy', 'name _id')
+    .exec((err, results) => {
+      if (err) {
+        return next(err)
+      } else {
+        res.json(results)
+      }
+    }) 
+}

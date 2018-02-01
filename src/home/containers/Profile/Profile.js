@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 import './Profile.css'
+import Post from '../Post/PostContainer'
 let log = console.log 
 
 class Profile extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      posts : [],
+      comment: '',
+      commentingPost: {}
+    }
   }
 
   componentWillMount() {
@@ -20,6 +25,22 @@ class Profile extends Component {
     }).catch(err => {
       log('Error: ', err)
     })
+
+    fetch(`/api/v1/user/posts/${this.props.match.params.id}`, {
+      method: 'GET',
+      credentials: 'include'
+    }).then(res => res.json())
+    .then(data => {
+      log(data)
+      this.setState({posts: data})
+    }).catch(err => {
+      log('Error: ', err)
+    })
+  }
+
+  comment(post, e) {
+    e.stopPropagation()
+    this.setState({ commentingPost: post })
   }
 
   info() {
@@ -44,11 +65,104 @@ class Profile extends Component {
     )
   }
 
+  commentContent() {
+    if (this.state.commentingPost.hasOwnProperty('content')) {
+      return (
+        <div className="mb-5">
+          <h5 className="text-white">{this.state.commentingPost.postedBy.name}</h5>
+          <p className="text-white">{this.state.commentingPost.content}</p>
+        </div>
+      )
+    } else {
+      return <p></p>
+    }
+  }
+
+
+
+  addComment() {
+    fetch('/api/v1/comment', {
+      method: 'POST',
+      credentials: 'include',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ comment: this.state.comment, id: this.state.commentingPost._id })
+    }).then(res => res.json())
+      .then(data => {
+        $('#exampleModalCenter').modal('hide')
+        fetch(`/api/v1/user/posts/${this.props.match.params.id}`, {
+          method: 'GET',
+          credentials: 'include'
+        }).then(res => res.json())
+          .then(results => {
+
+            this.setState({ posts: results, comment: '' })
+            // this.forceUpdate()
+          })
+      }).catch(err => log(err))
+  }
+
+  deletePost(e, id) {
+    e.stopPropagation();
+    fetch(`/api/v1/post/${id}`, {
+      method: 'DELETE',
+      credentials: 'include'
+    }).then(res => res.json())
+      .then(data => {
+        fetch(`/api/v1/user/posts/${this.props.match.params.id}`, {
+          method: 'GET',
+        }).then(res => res.json())
+          .then(results => {
+            this.setState({ posts: results })
+          })
+      }).catch(err => {
+        log('Error:', err)
+      })
+  }
+
   render() {
     return (
-      <div className="d-flex justify-content-center">
+      <div className="d-flex flex-column align-items-center">
         {this.info()}
-            
+        {this.state.posts.slice(0).reverse().map((post) =>
+          <div className="w-50" key={post._id}>
+            <Post post={post} comment={this.comment.bind(this)} deletePost={this.deletePost.bind(this)} />
+          </div>
+        )}
+        <div className="modal fade" id="exampleModal" tabIndex="-1" >
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title text-white" id="exampleModalLabel">Create Post</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <textarea className="form-control" rows="3" value={this.state.postContent} onChange={(e) => this.setState({ postContent: e.target.value })}></textarea>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" className="btn btn-primary" onClick={() => this.createPost()}>Post</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
+              <div className="modal-body">
+                {this.commentContent()}
+                <div className="form-group">
+                  <textarea className="form-control comment-input text-muted" rows="3" placeholder="Comment" value={this.state.comment} onChange={(e) => this.setState({ comment: e.target.value })} />
+                </div>
+                <div className="row justify-content-end submit-comment-btn">
+                  <button type="button" className="btn btn-secondary" data-dismiss="modal" aria-label="Close">Cancel</button>
+                  <button type="button" className="btn btn-primary" onClick={() => this.addComment()}>Comment</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
