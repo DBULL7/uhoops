@@ -27,7 +27,7 @@ exports.login = (req, res, next) => {
 			} else {
 				user.password = undefined
 				let token = jwt.sign({ _id: user._id }, 'supersecret')
-				res.cookie('jwt', token, { maxage: 900000, httpOnly: true }).json({ message: 'Success' })
+				res.cookie('admin', token, { maxage: 900000, httpOnly: true }).json({ message: 'Success' })
 			}
 		}
 	})
@@ -44,7 +44,7 @@ exports.create = (req, res) => {
 		} else {
 			user.password = undefined;
 			let token = jwt.sign({ _id: user._id }, 'supersecret')
-			res.cookie('jwt', token, { expires: new Date(Date.now() + 900000), httpOnly: true }).json({ message: 'Success' })
+			res.cookie('admin', token, { expires: new Date(Date.now() + 900000), httpOnly: true }).json({ message: 'Success' })
 		}
 	})
 }
