@@ -4,8 +4,8 @@ let ObjectId = Schema.ObjectId
 let bcrypt = require('bcrypt')
 
 let adminSchema = new Schema({
-      username: String,
-      password: String
+      username: { type: String, required: true, unique: true, minlength: 3 },
+      password: { type: String, required: true }
 })
 
 adminSchema.methods.comparePassword = function (password) {
