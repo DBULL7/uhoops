@@ -14,7 +14,41 @@ exports.get = (req, res) => {
     })
 }
 
-exports.put = (req, res) => { }
+exports.patch = (req, res) => {
+  const token = req.cookies.jwt
+  jwt.verify(token, 'secret', (error, decoded) => {
+    if (error) {
+      return res.status(403).json({ message: 'Not authorized' })
+    } else {
+      let id = decoded._id
+      Event.find({ _id: req.body.event, players: {$in: [id]}}, (err, docs) => {
+        if (err) return res.json(err)
+        if (!docs.length) {
+          Event.findByIdAndUpdate(
+            req.body.event,
+            { $push: { players: id } },
+            { new: true },
+            (err, results) => {
+              if (err) console.log(err, 'this is the err')
+              if (!results) return res.status(404).json({ message: 'No event by that ID found.' })
+              res.json({ message: 'Success' })
+            }
+          )
+        } else {
+          Event.findByIdAndUpdate(
+            req.body.event,
+            { $pull: { players: id }},
+            { new: true },
+            (err, results) => {
+              if (err) return res.json({ message: err })
+              res.json(results)
+            }
+          )
+        }
+      })
+    }
+  })
+}
 
 exports.deleteevent = (req, res) => { }
 

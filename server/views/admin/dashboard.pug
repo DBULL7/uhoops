@@ -7,7 +7,7 @@ block content
   .container-fluid.mt-3
     .row
       .col-md
-        h3 Reported Posts
+        h3 Reported Content
         div(id="posts")
       .col-md
         h3 Events 
@@ -29,7 +29,8 @@ block content
           input(class="form-control mb-3" placeholder="Event Name" id="eventName")
           input(class="form-control mb-3" placeholder="Event Location" id="eventLocation")
           input(class="form-control mb-3" placeholder="Date" id="eventDate")
-          input(class="form-control" type="number" placeholder="Cost" id="eventCost")
+          input(class="form-control mb-3" type="number" placeholder="Cost" id="eventCost")
+          textarea(class="form-control" rows="10" id="eventDescription") Event Description
         div(class="modal-footer")
           button(type="button" class="btn btn-secondary" data-dismiss="modal") Close
           button(type="button" class="btn btn-primary" id="createEventButton") Create Event 
