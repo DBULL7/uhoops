@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Post from './PostContainer'
+import Post from '../Post/PostContainer'
+
 let log = console.log 
 
 
@@ -103,6 +104,24 @@ class Home extends Component {
     }).catch(err => log(err))
   }
 
+  deletePost(e, id) {
+    e.stopPropagation();
+    fetch(`/api/v1/post/${id}`, {
+      method: 'DELETE',
+      credentials: 'include'
+    }).then(res => res.json())
+      .then(data => {
+        fetch('/api/v1/post', {
+          method: 'GET',
+        }).then(res => res.json())
+          .then(results => {
+            this.setState({ posts: results })
+          }) 
+      }).catch(err => {
+        log('Error:', err)
+      })
+  }
+
   render() {
     let twitterHeight = window.innerHeight;
     return (
@@ -113,7 +132,7 @@ class Home extends Component {
           </div>
           <div className="col-5">
             {this.state.posts.slice(0).reverse().map((post) =>
-              <Post post={post} key={post._id} comment={this.comment.bind(this)}/> 
+              <Post post={post} key={post._id} comment={this.comment.bind(this)} deletePost={this.deletePost.bind(this)}/> 
             )}
             <button className=" btn-primary rounded-circle" id="post-btn" data-toggle="modal" data-target="#exampleModal">
               <i className="fas fa-pencil-alt fa-2x"></i>

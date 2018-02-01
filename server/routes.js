@@ -61,6 +61,7 @@ r.delete('/api/v1/post/:id', post.deletepost)
 r.post('/api/v1/post', post.post)
 r.post('/api/v1/comment', post.comment)
 r.get('/api/v1/comment/:id', post.commentStatus)
+r.get('/api/v1/user/posts/:id', post.userPosts)
 
 const user = require('./controllers/user')
 r.get('/api/v1/user', user.get)
