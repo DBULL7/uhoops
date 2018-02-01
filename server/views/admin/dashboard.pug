@@ -14,6 +14,7 @@ block content
         div(id="events")
       .col-md.pt-5.d-flex.flex-column.align-items-center
         button(class='btn btn-primary mb-3' data-toggle="modal" data-target="#createEvent") Create Event 
+        button(class="btn btn-secondary" id="logout") Logout
 
 
 
@@ -25,13 +26,13 @@ block content
           button(type="button" class="close" data-dismiss="modal" aria-label="Close")
             span(aria-hidden="true") &times
         div(class="modal-body")
-          input(class="form-control mb-3" placeholder="Event Name")
-          input(class="form-control mb-3" placeholder="Event Location")
-          input(class="form-control mb-3" placeholder="Date")
-          input(class="form-control" type="number" placeholder="Cost")
+          input(class="form-control mb-3" placeholder="Event Name" id="eventName")
+          input(class="form-control mb-3" placeholder="Event Location" id="eventLocation")
+          input(class="form-control mb-3" placeholder="Date" id="eventDate")
+          input(class="form-control" type="number" placeholder="Cost" id="eventCost")
         div(class="modal-footer")
           button(type="button" class="btn btn-secondary" data-dismiss="modal") Close
-          button(type="button" class="btn btn-primary") Create Event 
+          button(type="button" class="btn btn-primary" id="createEventButton") Create Event 
 
   script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous")
