@@ -40,6 +40,11 @@ class Nav extends Component {
               </NavLink>
             </li>
             <li className="nav-item">
+              <NavLink activeClassName="selected" className="nav-link" to="/events">
+                <span className="text">Events</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink activeClassName="selected" className="nav-link" to="/settings">
                 <span className="text">Settings</span>
               </NavLink>

@@ -70,3 +70,11 @@ r.delete('/api/v1/user/:id', user.deleteuser)
 r.post('/api/v1/user', user.post)
 
 
+
+r.get('/admin/dashboard', admin.dashboard)
+
+
+r.get('/api/v1/admin', admin.get)
+r.put('/api/v1/admin/:id', admin.put)
+r.delete('/api/v1/admin/:id', admin.deleteadmin)
+r.post('/api/v1/admin', admin.post)
