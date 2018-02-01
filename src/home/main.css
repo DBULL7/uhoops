@@ -165,6 +165,10 @@ textarea:focus {
   color: white;
 }
 
+.event-description {
+  white-space: pre-line;
+}
+
 @media (max-width: 996px) {
 
 

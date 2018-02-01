@@ -78,6 +78,6 @@ r.post('/api/v1/admin', admin.create)
 
 const event = require('./controllers/event')
 r.get('/api/v1/event', event.get)
-r.put('/api/v1/event/:id', event.put)
+r.patch('/api/v1/event', event.patch)
 r.delete('/api/v1/event/:id', event.deleteevent)
 r.post('/api/v1/event', event.post)
