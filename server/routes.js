@@ -25,9 +25,7 @@ const home = require('./controllers/home')
 r.get('/events', checkAuth, home.index)
 r.get('/profile', checkAuth, home.index)
 r.get('/settings', checkAuth, home.index)
-r.get('/user/:id', checkAuth, (req, res) => {
-  res.redirect('/')
-})
+r.get('/user/:id', checkAuth, home.index)
 
 
 const camps = require('./controllers/camps')
@@ -79,5 +77,8 @@ r.post('/api/v1/admin', admin.create)
 const event = require('./controllers/event')
 r.get('/api/v1/event', event.get)
 r.patch('/api/v1/event', event.patch)
+r.put('/api/v1/event', event.put)
 r.delete('/api/v1/event/:id', event.deleteevent)
 r.post('/api/v1/event', event.post)
+
+r.get('/admin/dashboard/event/:id', admin.event)

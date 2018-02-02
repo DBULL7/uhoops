@@ -12,6 +12,20 @@ block content
       .col-md
         h3 Events 
         div(id="events")
+          each event in events 
+            .card.mt-3 
+              .card-header
+                = event.date
+              .card-body 
+                h5.card-title.mb-3= event.name
+                h6.card-text.text-muted.mb-1= event.location
+                p.card-text.event-description= event.description
+                span.d-flex 
+                  p.card-text $
+                  p.card-text= event.cost
+
+              .card-footer
+                a(class="btn btn-primary" href=`/admin/dashboard/event/${event._id}`) See More 
       .col-md.pt-5.d-flex.flex-column.align-items-center
         button(class='btn btn-primary mb-3' data-toggle="modal" data-target="#createEvent") Create Event 
         button(class="btn btn-secondary" id="logout") Logout
