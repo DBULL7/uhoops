@@ -35,14 +35,26 @@ class Events extends Component {
         $('#exampleModalCenter').modal('show')
         setTimeout(() => {
           $('#exampleModalCenter').modal('hide')
-
+          fetch('/api/v1/event', {
+            method: 'GET',
+            credentials: 'include'
+          }).then(res => res.json())
+            .then(data => {
+              this.setState({ events: data })
+            }).catch(err => log('Error: ', err))
         }, 1200);
       } else {
         this.setState({message: 'Unapplied Successfully'})
         $('#exampleModalCenter').modal('show')
         setTimeout(() => {
           $('#exampleModalCenter').modal('hide')
-
+          fetch('/api/v1/event', {
+            method: 'GET',
+            credentials: 'include'
+          }).then(res => res.json())
+            .then(data => {
+              this.setState({ events: data })
+            }).catch(err => log('Error: ', err))
         }, 1200);
       }
       

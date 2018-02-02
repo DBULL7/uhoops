@@ -51,6 +51,22 @@ exports.patch = (req, res) => {
   })
 }
 
+exports.removePlayerByAdmin = (req, res) => {
+  const token = req.cookies.admin
+  jwt.verify(token, 'supersecret', (error, decoded) => {
+    if (error) return res.json({message: 'Not admin.'})
+    Event.findByIdAndUpdate(
+      req.body.event,
+      { $pull: { players: req.params.id } },
+      { new: true },
+      (err, results) => {
+        if (err) return res.json({ message: err })
+        res.json(results)
+      }
+    )
+  })
+}
+
 
 exports.put = (req, res) => {
   const token = req.cookies.admin 

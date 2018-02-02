@@ -203,7 +203,6 @@ class Post extends Component {
       if (this.props.user._id == this.props.post.postedBy._id) {
         return(
           <div className="dropdown-menu dropdown">
-            <li className="dropdown-item" href="#">Report</li>
             <li className="dropdown-item" onClick={(e) => this.props.deletePost(e, this.state.post._id)}>Delete</li>
           </div>  
         )

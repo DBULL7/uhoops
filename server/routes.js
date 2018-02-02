@@ -2,6 +2,8 @@ const express = require('express')
 const r = express.Router()
 module.exports = r
 let checkAuth = require('./controllers/helpers/checkAuth')
+let checkAdmin = require('./controllers/helpers/checkAdmin')
+
 const landing = require('./controllers/landing')
 r.get('/', landing.index)
 
@@ -36,9 +38,6 @@ r.get('/logout', (req, res) => {
   res.redirect('/')
 })
 
-const admin = require('./controllers/admin')
-r.get('/admin', admin.index)
-
 const pro_combine = require('./controllers/pro_combine')
 r.get('/pro_combine', pro_combine.index)
 
@@ -67,9 +66,9 @@ r.put('/api/v1/user/:id', user.put)
 r.delete('/api/v1/user/:id', user.deleteuser)
 r.post('/api/v1/user', user.post)
 
-
-
-r.get('/admin/dashboard', admin.dashboard)
+const admin = require('./controllers/admin')
+r.get('/admin', admin.index)
+r.get('/admin/dashboard', checkAdmin, admin.dashboard)
 r.post('/api/v1/admin/login', admin.login)
 r.post('/api/v1/admin', admin.create)
 
@@ -79,6 +78,11 @@ r.get('/api/v1/event', event.get)
 r.patch('/api/v1/event', event.patch)
 r.put('/api/v1/event', event.put)
 r.delete('/api/v1/event/:id', event.deleteevent)
-r.post('/api/v1/event', event.post)
+r.post('/api/v1/event', checkAdmin, event.post)
+r.patch('/api/v1/event/:id', event.removePlayerByAdmin)
 
-r.get('/admin/dashboard/event/:id', admin.event)
+r.get('/admin/dashboard/event/:id', checkAdmin, admin.event)
+r.get('/admin/logout', (req, res) => {
+  res.clearCookie('admin')
+  res.redirect('/') 
+})

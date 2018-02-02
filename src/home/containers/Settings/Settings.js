@@ -16,7 +16,7 @@ class Settings extends Component {
       facebook: '',
       twitter: '',
       snapchat: '',
-      bio: ''
+      bio: '',
     }
   }
 
@@ -64,6 +64,10 @@ class Settings extends Component {
         this.setState({
           name: name, location: location, team: team, phone: phone, position: position, publicEmail: publicEmail, instagram: instagram, facebook: facebook, twitter: twitter, snapchat: snapchat, bio: bio
         }) 
+        $('#exampleModalCenter').modal('show')
+        setTimeout(() => {
+          $('#exampleModalCenter').modal('hide') 
+        }, 1200);
       }).catch(err => {
         log(err)
       })
@@ -142,6 +146,18 @@ class Settings extends Component {
               <div className="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
                 <button className="btn btn-danger">Delete Account</button>
                 <button className="btn btn-warning">Change Password</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="modal fade" id="exampleModalCenter" tabIndex="-1">
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content bg-success">
+              <div className="modal-header bg-success m-auto border-0 d-flex flex-column align-items-center">
+                <h2 className="modal-title text-white mb-3" id="exampleModalLongTitle">
+                  <i className="far fa-check-circle fa-3x"></i>
+                </h2>
+                <h4 className="modal-title text-white">Changes Saved</h4>
               </div>
             </div>
           </div>

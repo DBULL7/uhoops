@@ -1,6 +1,22 @@
 import './main.css'
 let log = console.log 
 
+window.removePlayer = function (id) {
+  let event_id = $('#eventID').text()
+  fetch(`/api/v1/event/${id}`, {
+    method: 'PATCH',
+    credentials: 'include',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({event: event_id})
+  }).then(res => res.json())
+  .then(data => {
+    log(data)
+    location.reload()
+  })
+  .catch(err => log('Error: ', err))
+}
+
+
 $('#update').on('click', () => {
   let id = $('#eventID').text()
   let name = $('#name').val()

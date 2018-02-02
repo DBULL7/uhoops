@@ -3,7 +3,7 @@ let log = console.log
 
 
 $('#logout').on('click', () => {
-  window.location = '../../'
+  window.location = '/admin/logout'
 })
 
 var textareas = document.getElementsByTagName('textarea');
