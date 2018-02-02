@@ -14,6 +14,7 @@ exports.get = (req, res) => {
     })
 }
 
+
 exports.patch = (req, res) => {
   const token = req.cookies.jwt
   jwt.verify(token, 'secret', (error, decoded) => {
@@ -50,7 +51,39 @@ exports.patch = (req, res) => {
   })
 }
 
-exports.deleteevent = (req, res) => { }
+
+exports.put = (req, res) => {
+  const token = req.cookies.admin 
+  jwt.verify(token, 'supersecret', (error, decoded) => {
+    if (error) return res.json({message: 'Not admin.'})
+    let { _id, name, cost, description, date, location } = req.body 
+    Event.findByIdAndUpdate(
+      _id, 
+      { "$set": { "name": name, "cost": cost, "description": description, "date": date, "location": location } },
+      { new: true },
+      (err, event) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send(err);
+      } else {
+        res.status(200).json(event);
+      }
+    })
+  })
+}
+
+
+exports.deleteevent = (req, res) => { 
+  const token = req.cookies.admin
+  jwt.verify(token, 'supersecret', (error, decoded) => {
+    if (error) return res.json({message: 'Not Admin'})
+    Event.findByIdAndRemove(req.params.id, (err, result) => {
+      if (err) return res.status(500).json({message: 'Something went wrong'})
+      res.json(result)
+    })
+  })
+}
+
 
 exports.post = (req, res) => {
   const token = req.cookies.admin
@@ -59,8 +92,6 @@ exports.post = (req, res) => {
     if (error) {
       // return not found 
     } else {
-      // should be the id 
-      let id = decoded._id
       let newEvent = new Event(req.body)
       newEvent.save((err, post) => {
         if (err) {

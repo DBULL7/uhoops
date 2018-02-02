@@ -1,4 +1,5 @@
 let Admin = require('../models/Admin')
+let Event = require('../models/Event')
 let jwt = require('jsonwebtoken')
 let bcrypt = require('bcrypt')
 
@@ -7,7 +8,16 @@ exports.index = (req, res) => {
 }
 
 exports.dashboard = (req, res) => {
-	res.render('admin/dashboard', {})
+	Event.find()
+	  .populate('players', 'name _id position email')
+		.exec((err, results) => {
+			if (err) {
+				return next(err)
+			} else {
+				res.render('admin/dashboard', { events: results })
+			}
+		})
+
 }
 
 
@@ -47,4 +57,21 @@ exports.create = (req, res) => {
 			res.cookie('admin', token, { expires: new Date(Date.now() + 900000), httpOnly: true }).json({ message: 'Success' })
 		}
 	})
+}
+
+
+exports.event = (req, res, next) => {
+	Event.findById(req.params.id)
+		.populate('players', 'name _id position email')
+		.exec((err, event) => {
+			if (err) {
+				return next(err)
+			} else {
+				if (event) {
+					res.render('admin/event', { event: event })
+				} else {
+					next()
+				}
+			}
+		})
 }

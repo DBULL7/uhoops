@@ -68,15 +68,16 @@ class Events extends Component {
         {this.state.events.map(event => {
           return (
             <div className="card w-50" key={event._id}> 
-              <div className="card-header">
+              <div className="card-header d-flex justify-content-between">
                 {event.date}
+                <p>${event.cost}</p>
               </div>
               <div className="card-body">
                 <h5 className="card-title mb-3">{event.name}</h5>
                 <h6 className="card-text text-muted">{event.location}</h6>
               </div>
               <div className="card-body">
-                <p className="card-text event-description">{event.description}</p>
+                <textarea className="form-control event-description" disabled="true" value={event.description}></textarea>
               </div>
               <div className="card-footer">
                 <button className="btn btn-primary" onClick={() => this.applyToEvent(event._id)}>
