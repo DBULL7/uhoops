@@ -9,7 +9,10 @@ window.removePlayer = function (id) {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({event: event_id})
   }).then(res => res.json())
-  .then(data => log(data))
+  .then(data => {
+    log(data)
+    location.reload()
+  })
   .catch(err => log('Error: ', err))
 }
 
