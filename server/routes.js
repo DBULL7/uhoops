@@ -2,6 +2,8 @@ const express = require('express')
 const r = express.Router()
 module.exports = r
 let checkAuth = require('./controllers/helpers/checkAuth')
+
+
 const landing = require('./controllers/landing')
 r.get('/', landing.index)
 
@@ -80,5 +82,6 @@ r.patch('/api/v1/event', event.patch)
 r.put('/api/v1/event', event.put)
 r.delete('/api/v1/event/:id', event.deleteevent)
 r.post('/api/v1/event', event.post)
+r.patch('/api/v1/event/:id', event.removePlayerByAdmin)
 
 r.get('/admin/dashboard/event/:id', admin.event)
