@@ -59,6 +59,10 @@ r.post('/api/v1/post', post.post)
 r.post('/api/v1/comment', post.comment)
 r.get('/api/v1/comment/:id', post.commentStatus)
 r.get('/api/v1/user/posts/:id', post.userPosts)
+// delete comment 
+// report post
+r.patch('/api/v1/post/:id', post.reportPost)
+// report comment 
 
 const user = require('./controllers/user')
 r.get('/api/v1/user', user.get)

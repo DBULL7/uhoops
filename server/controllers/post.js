@@ -183,3 +183,17 @@ exports.userPosts = (req, res) => {
       }
     }) 
 }
+
+exports.reportPost = (req, res) => {
+  Post.findById(
+    req.params.id, 
+    (err, post) => {
+    if (err) return res.json(err)
+    post.reported = !post.reported 
+    post.save()
+    res.json(post)
+  })
+}
+
+
+
