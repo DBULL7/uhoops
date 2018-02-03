@@ -18,7 +18,8 @@ let postSchema = new Schema({
                   ref: 'User'
             }
       }],
-      postedAt: { type: Date, default: Date.now }
+      postedAt: { type: Date, default: Date.now },
+      reported: { type: Boolean, default: false } 
 })
 
 module.exports = mongoose.model('Post', postSchema)

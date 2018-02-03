@@ -198,6 +198,17 @@ class Post extends Component {
     }
   }
 
+  reportPost(postID) {
+    fetch(`/api/v1/post/${postID}`, {
+      method: 'PATCH',
+      credentials: 'include'
+    }).then(res => res.json())
+    .then(data => {
+      log(data)
+    })
+    .catch(err => log('Error: ', err))
+  }
+
   options() {
     if (this.props.user) {
       if (this.props.user._id == this.props.post.postedBy._id) {
@@ -211,7 +222,7 @@ class Post extends Component {
 
     return (
       <div className="dropdown-menu dropdown" aria-labelledby="dropdownMenuButton">
-        <li className="dropdown-item" href="#">Report</li>
+        <li className="dropdown-item" onClick={() => this.reportPost(this.props.post._id)}>Report</li>
       </div> 
     )
   }

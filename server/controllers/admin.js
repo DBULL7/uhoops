@@ -1,5 +1,6 @@
 let Admin = require('../models/Admin')
 let Event = require('../models/Event')
+let Post = require('../models/Post')
 let jwt = require('jsonwebtoken')
 let bcrypt = require('bcrypt')
 
@@ -7,17 +8,24 @@ exports.index = (req, res) => {
 	res.render('admin/index', {})
 }
 
-exports.dashboard = (req, res) => {
+exports.dashboard = (req, res, next) => {
 	Event.find()
 	  .populate('players', 'name _id position email')
 		.exec((err, results) => {
 			if (err) {
 				return next(err)
 			} else {
-				res.render('admin/dashboard', { events: results })
+				Post.find({reported: true})
+					.populate('postedBy', 'name _id')
+					.exec((err, reportedPosts) => {
+						if (err) {
+							return next(err)
+						} else {
+							res.render('admin/dashboard', { events: results, reported: reportedPosts })
+						}
+					})	
 			}
 		})
-
 }
 
 

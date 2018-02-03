@@ -13,7 +13,7 @@ class Profile extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     log(this.props.match.params.id)
     fetch(`/api/v1/account/${this.props.match.params.id}`, {
       method: 'GET',
@@ -60,6 +60,7 @@ class Profile extends Component {
           {instagram !== '' ? <a href={instagram} className="card-link"><i className="fab fa-instagram fa-lg"></i></a> : <a></a>}
           {facebook  !== '' ? <a href={facebook}  className="card-link"><i className="fab fa-facebook-square fa-lg"></i></a> : <a></a>}
           {twitter   !== '' ? <a href={twitter}   className="card-link"><i className="fab fa-twitter fa-lg"></i></a> : <a></a>}
+          {this.props.user._id === this.state.user._id ? <a href='/settings' className="ml-5">Edit Profile</a> : <p></p>}
         </div>
       </div>
     )

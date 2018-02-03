@@ -40,3 +40,8 @@ $('#createEventButton').on('click', () => {
       log('Error: ', err)
     })
 })
+
+$('.dismissPost').on('click', () => {
+  log('fired')
+  let test = $(".")
+})

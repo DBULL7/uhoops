@@ -1,7 +1,7 @@
 extends ../layout 
 append head
   link(rel="stylesheet" href="../dashboard/main.css")
-  link(rel="shortcut icon" type="image/png" href="./assets/logo.png")
+  link(rel="shortcut icon" type="image/png" href="/assets/logo.png")
   link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous")
 block content 
   .container-fluid.mt-3
@@ -9,6 +9,17 @@ block content
       .col-md
         h3 Reported Content
         div(id="posts")
+          each post in reported
+            .card.mt-3
+              .card-header 
+                = post._id
+              .card-body
+                h5.card-title.mb-3= post.postedBy.name
+                p.card-text= post.content 
+              .card-footer
+                button.btn.btn-success.dismissPost Dismiss
+                button.btn.btn-danger.ml-3.deletePost Delete Post 
+
       .col-md
         h3 Events 
         div(id="events")
