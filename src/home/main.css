@@ -186,6 +186,16 @@ textarea:focus {
   white-space: pre-line;
 }
 
+.eventCard {
+  width: 50%;
+}
+
+.postCard {
+  width: 50%;
+}
+
+
+
 @media (max-width: 996px) {
 
 
@@ -256,6 +266,26 @@ textarea:focus {
   .col-5 {
     flex: 0 0 100%!important;
     max-width: 100%!important;
+  }
+  .eventCard {
+    width: 90%;
+  }
+
+  .postCard {
+    width: 90%;
+  }
+
+  #settingsRow {
+    flex-direction: column;
+  }
+  .col-3 {
+    max-width: 91%!important;
+    width: 90%!important;
+    margin-bottom: 30px;
+  }
+  .col-8 {
+    max-width: 91%!important;
+    width: 90%!important;
   }
 }
 
