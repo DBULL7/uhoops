@@ -41,7 +41,28 @@ $('#createEventButton').on('click', () => {
     })
 })
 
-$('.dismissPost').on('click', () => {
-  log('fired')
-  let test = $(".")
-})
+window.dismiss = (postID) => {
+  fetch(`/api/v1/admin/post/${postID}`, {
+    method: 'PATCH',
+    credentials: 'include'
+  }) 
+  .then(res => res.json())
+  .then(json => {
+    if (json.message === 'Success') {
+       $(`#${postID}`).remove()
+    }
+  }).catch(err => log('Error: ', err))
+}
+
+window.deletePost = (postID) => {
+  fetch(`/api/v1/admin/post/${postID}`, {
+    method: 'DELETE',
+    credentials: 'include'
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.message === 'Success') {
+      $(`#${postID}`).remove()
+    }
+  })
+}

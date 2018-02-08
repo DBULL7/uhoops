@@ -83,3 +83,21 @@ exports.event = (req, res, next) => {
 			}
 		})
 }
+
+exports.deletePost = (req, res) => {
+	Post.findByIdAndRemove(req.params.id, (err, post) => {
+		if (err) return res.json(err)
+		res.json({message: 'Success'})
+	})
+}
+
+exports.dismissReport = (req, res) => {
+	Post.findById(
+		req.params.id,
+		(err, post) => {
+			if (err) return res.json(err)
+			post.reported = false 
+			post.save()
+			res.json({ message: 'Success' })
+		})
+}
