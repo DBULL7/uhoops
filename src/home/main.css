@@ -100,11 +100,28 @@ body {
 
 }
 
+.modal-header {
+  border-bottom: none!important;
+}
+
 .modal-content {
   background: #1c2937!important;
 }
 
+#create-post {
+  background: #141e27!important;
+  color: lightgray;
+  border: none;
+}
 
+#create-post-footer {
+  border-top: none;
+}
+
+.form-control {
+  background: #FFF!important;
+  border: none!important;
+}
 
 .form-control:focus {
   border: 1px solid orange!important;

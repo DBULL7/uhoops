@@ -150,9 +150,9 @@ class Home extends Component {
                 </button>
               </div>
               <div className="modal-body">
-                <textarea className="form-control" rows="3" value={this.state.postContent} onChange={(e) => this.setState({postContent: e.target.value})}></textarea>
+                <textarea className="form-control" id="create-post" rows="3" value={this.state.postContent} onChange={(e) => this.setState({postContent: e.target.value})}></textarea>
               </div>
-              <div className="modal-footer">
+              <div className="modal-footer" id="create-post-footer">
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" className="btn btn-primary" onClick={() => this.createPost()}>Post</button>
               </div>
