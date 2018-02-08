@@ -14,7 +14,6 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    log(this.props.match.params.id)
     fetch(`/api/v1/account/${this.props.match.params.id}`, {
       method: 'GET',
       credentials: 'include'
@@ -31,11 +30,33 @@ class Profile extends Component {
       credentials: 'include'
     }).then(res => res.json())
     .then(data => {
-      log(data)
       this.setState({posts: data})
     }).catch(err => {
       log('Error: ', err)
     })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    fetch(`/api/v1/account/${nextProps.match.params.id}`, {
+      method: 'GET',
+      credentials: 'include'
+    }).then(res => res.json())
+      .then(data => {
+        log(data)
+        this.setState({ user: data })
+      }).catch(err => {
+        log('Error: ', err)
+      })
+
+    fetch(`/api/v1/user/posts/${nextProps.match.params.id}`, {
+      method: 'GET',
+      credentials: 'include'
+    }).then(res => res.json())
+      .then(data => {
+        this.setState({ posts: data })
+      }).catch(err => {
+        log('Error: ', err)
+      })
   }
 
   comment(post, e) {
@@ -49,7 +70,7 @@ class Profile extends Component {
     }
     let {name, publicEmail, phone, bio, location, position, instagram, facebook, twitter } = this.state.user
     return (
-      <div className="w-50 card">
+      <div className="postCard card">
         <div className="card-body">
           <h5 className="card-title mb-3">{name}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{position}</h6>
@@ -125,7 +146,7 @@ class Profile extends Component {
       <div className="d-flex flex-column align-items-center">
         {this.info()}
         {this.state.posts.slice(0).reverse().map((post) =>
-          <div className="w-50" key={post._id}>
+          <div className="postCard" key={post._id}>
             <Post post={post} comment={this.comment.bind(this)} deletePost={this.deletePost.bind(this)} />
           </div>
         )}

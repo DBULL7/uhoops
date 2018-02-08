@@ -79,7 +79,7 @@ class Events extends Component {
 
         {this.state.events.map(event => {
           return (
-            <div className="card w-50" key={event._id}> 
+            <div className="card eventCard" key={event._id}> 
               <div className="card-header d-flex justify-content-between">
                 {event.date}
                 <p>${event.cost}</p>

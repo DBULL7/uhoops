@@ -76,7 +76,7 @@ class Settings extends Component {
   render() {
     return (
       <div className="col-sm-12 settings-container">
-        <div className="row">
+        <div className="row" id="settingsRow">
           <div className="col-3">
             <div className="list-group" id="list-tab" role="tablist">
               <a className="list-group-item list-group-item-action active" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
