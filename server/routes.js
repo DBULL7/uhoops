@@ -75,7 +75,8 @@ r.get('/admin', admin.index)
 r.get('/admin/dashboard', checkAdmin, admin.dashboard)
 r.post('/api/v1/admin/login', admin.login)
 r.post('/api/v1/admin', admin.create)
-
+r.patch('/api/v1/admin/post/:id', checkAdmin, admin.dismissReport)
+r.delete('/api/v1/admin/post/:id', checkAdmin, admin.deletePost)
 
 const event = require('./controllers/event')
 r.get('/api/v1/event', event.get)
