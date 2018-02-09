@@ -36,7 +36,7 @@ class Post extends Component {
         if (data.message === 'Commented.') {
           this.setState({ commented : true })
         }
-      })
+      }).catch(err => log('Error: ', err))
   }
 
 
@@ -82,7 +82,7 @@ class Post extends Component {
           });
           // get new like count
           this.setState({ liked: false })
-        })
+        }).catch(err => log('Error: ', err))
     } else {
       // send like
       fetch('/api/v1/post', {
@@ -99,7 +99,7 @@ class Post extends Component {
           });
           // get new like count
           this.setState({ liked: true })
-        })
+        }).catch(err => log('Error: ', err))
     } 
   }
 

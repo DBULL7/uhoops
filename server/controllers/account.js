@@ -1,12 +1,44 @@
 let bcrypt = require('bcrypt')
 let User = require('../models/User')
 let jwt = require('jsonwebtoken')
+let Post = require('../models/Post')
 
 
-// exports.deleteaccount = (req, res) => { }
+exports.deleteaccount = (req, res) => { 
+  let token = req.cookies.jwt
+  jwt.verify(token, 'secret', (error, decoded) => {
+    if (error) return res.json({ message: 'Not logged in.' })
+    if (decoded._id !== req.params.id) {
+      return res.status(403).json({message: 'Not authorized.'})
+    }
+    User.findByIdAndRemove(req.params.id, ((err) => {
+      if (err) return res.json({ err })
+      Post.deleteMany({ postedBy: req.params.id }, ((postErr) => {
+        if (postErr) return res.json(postErr)
+          Post.update(
+            { likedBy: { $in: [req.params.id] } },
+            { $pull: { likedBy: req.params.id }, $inc: { likes: -1 } }, 
+            { multi: true }, 
+            (likedbyErr) => {
+            if (likedbyErr) return res.json(likedbyErr)
+            Post.update(
+              {},
+              { $pull: { comments: { $elemMatch: { postedBy: req.params.id } } } },
+              { multi: true },
+              (commentsErr, docs) => {
+                if (commentsErr) return res.json(commentsErr)
+                res.json({ message: 'Success' })
+              }
+            )
+            
+          })
+        })
+      )})
+  )})
+}
 
 exports.createAccount = (req, res, next) => { 
-  var newUser = new User(req.body);
+  let newUser = new User(req.body);
   if (newUser.password.length < 8) {
     return res.status(400).json({ message: 'Password Length Too Short.'})
   }

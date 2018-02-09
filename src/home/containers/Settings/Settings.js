@@ -73,6 +73,24 @@ class Settings extends Component {
       })
   }
 
+  askDeleteAccount() {
+    $('#deleteModal').modal('show')
+  }
+
+
+  deleteAccount() {
+    fetch(`/api/v1/account/${this.props.user._id}`, {
+      method: 'DELETE',
+      credentials: 'include'
+    }).then(res => res.json())
+    .then(json => {
+      log(json)
+      if (json.message === 'Success') {
+        window.location = '/logout'
+      }
+    })
+  }
+
   render() {
     return (
       <div className="col-sm-12 settings-container">
@@ -144,7 +162,7 @@ class Settings extends Component {
                       </div>
 
               <div className="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-                <button className="btn btn-danger">Delete Account</button>
+                <button className="btn btn-danger mr-3" onClick={() => this.askDeleteAccount()}>Delete Account</button>
                 <button className="btn btn-warning">Change Password</button>
               </div>
             </div>
@@ -158,6 +176,22 @@ class Settings extends Component {
                   <i className="far fa-check-circle fa-3x"></i>
                 </h2>
                 <h4 className="modal-title text-white">Changes Saved</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="modal fade" id="deleteModal" tabIndex="-1">
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content bg-danger">
+              <div className="modal-header bg-danger m-auto border-0 d-flex flex-column align-items-center">
+                <h5 className="modal-title text-white mb-3">
+                  Are You Sure You Want to Delete Your Account? 
+                </h5>
+
+              </div>
+              <div className="modal-footer border-0">
+                <button type="button" className="btn btn-primary" onClick={() => this.deleteAccount()}>Delete</button>
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
