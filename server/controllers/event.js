@@ -82,7 +82,7 @@ exports.put = (req, res) => {
         console.log(err);
         res.status(500).send(err);
       } else {
-        res.status(200).json(event);
+        res.status(200).json({message: 'Success'});
       }
     })
   })

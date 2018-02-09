@@ -39,7 +39,10 @@ $('#update').on('click', () => {
   }).then(res => res.json())
   .then(data => {
     if (data.message === 'Success') {
-      // green modal or something
+      $('#exampleModalCenter').modal('show')
+      setTimeout(() => {
+        $('#exampleModalCenter').modal('hide')
+      }, 1200);
     } else {
       // red modal 
     }
@@ -55,4 +58,8 @@ $('#delete').on('click', () => {
   .then(data => {
     log(data)
   }).catch(err => log('Error: ', err))
+})
+
+$('#returnToDash').on('click', () => {
+  window.location = '/admin/dashboard'
 })

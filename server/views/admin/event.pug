@@ -22,7 +22,8 @@ block content
         input(value=`${event.date}` class="form-control" id="date")
         .d-flex.mt-3
           button(class="btn btn-primary mr-3" id="update") Update
-          button(class="btn btn-danger" id="delete") Delete Event
+          button(class="btn btn-danger mr-3" id="delete") Delete Event
+          button(class="btn btn-secondary" id="returnToDash") Back to Dashboard 
     .col-6
       h2 Players 
       each player in event.players
@@ -32,6 +33,16 @@ block content
           p= player.email
           a(href=`/user/${player._id}`) See Profile 
           button(type="button" class="btn btn-warning" onclick=`removePlayer(${JSON.stringify(player._id)})`) Remove 
+
+
+  div(class="modal fade" id="exampleModalCenter" tabIndex="-1")
+    div(class="modal-dialog modal-dialog-centered" role="document")
+      div(class="modal-content bg-success")
+        div(class="modal-header bg-success m-auto border-0 d-flex flex-column align-items-center")
+          h2(class="modal-title text-white mb-3" id="exampleModalLongTitle")
+            i(class="far fa-check-circle fa-3x")
+          h4(class="modal-title text-white")
+
   script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
