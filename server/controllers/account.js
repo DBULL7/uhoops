@@ -11,6 +11,7 @@ exports.deleteaccount = (req, res) => {
     if (decoded._id !== req.params.id) {
       return res.status(403).json({message: 'Not authorized.'})
     }
+    // need to remove from events
     User.findByIdAndRemove(req.params.id, ((err) => {
       if (err) return res.json({ err })
       Post.deleteMany({ postedBy: req.params.id }, ((postErr) => {
@@ -23,7 +24,7 @@ exports.deleteaccount = (req, res) => {
             if (likedbyErr) return res.json(likedbyErr)
             Post.update(
               {},
-              { $pull: { comments: { $elemMatch: { postedBy: req.params.id } } } },
+              { $pull: { comments: { postedBy: req.params.id } } },
               { multi: true },
               (commentsErr, docs) => {
                 if (commentsErr) return res.json(commentsErr)
